@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TONG_HOP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MA_LK" type="xs:string" />
+        <xs:element name="STT" type="xs:unsignedByte" />
+        <xs:element name="MA_BN" type="xs:string" />
+        <xs:element name="HO_TEN" type="xs:string" />
+        <xs:element name="NGAY_SINH" type="xs:string" />
+        <xs:element name="GIOI_TINH" type="xs:unsignedByte" />
+        <xs:element name="DIA_CHI" type="xs:string" />
+        <xs:element name="MA_THE" type="xs:string" />
+        <xs:element name="MA_DKBD" type="xs:string" />
+        <xs:element name="GT_THE_TU" type="xs:unsignedInt" />
+        <xs:element name="GT_THE_DEN" type="xs:unsignedInt" />
+        <xs:element name="MIEN_CUNG_CT" type="xs:string" />
+        <xs:element name="TEN_BENH" type="xs:string" />
+        <xs:element name="MA_BENH" type="xs:string" />
+        <xs:element name="MA_BENHKHAC" type="xs:string" />
+        <xs:element name="MA_LYDO_VVIEN" type="xs:unsignedByte" />
+        <xs:element name="MA_NOI_CHUYEN" type="xs:string" />
+        <xs:element name="MA_TAI_NAN" type="xs:unsignedByte" />
+        <xs:element name="NGAY_VAO" type="xs:string" />
+        <xs:element name="NGAY_RA" type="xs:string" />
+        <xs:element name="SO_NGAY_DTRI" type="xs:unsignedByte" />
+        <xs:element name="KET_QUA_DTRI" type="xs:unsignedByte" />
+        <xs:element name="TINH_TRANG_RV" type="xs:unsignedByte" />
+        <xs:element name="NGAY_TTOAN" type="xs:string" />
+        <xs:element name="T_THUOC" type="xs:decimal" />
+        <xs:element name="T_VTYT" type="xs:decimal" />
+        <xs:element name="T_TONGCHI" type="xs:decimal" />
+        <xs:element name="T_BNTT" type="xs:decimal" />
+        <xs:element name="T_BNCCT" type="xs:decimal" />
+        <xs:element name="T_BHTT" type="xs:decimal" />
+        <xs:element name="T_NGUONKHAC" type="xs:decimal" />
+        <xs:element name="T_NGOAIDS" type="xs:decimal" />
+        <xs:element name="NAM_QT" type="xs:unsignedShort" />
+        <xs:element name="THANG_QT" type="xs:unsignedByte" />
+        <xs:element name="MA_LOAI_KCB" type="xs:unsignedByte" />
+        <xs:element name="MA_KHOA" type="xs:string" />
+        <xs:element name="MA_CSKCB" type="xs:string" />
+        <xs:element name="MA_KHUVUC" type="xs:string" />
+        <xs:element name="MA_PTTT_QT" type="xs:string" />
+        <xs:element name="CAN_NANG" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,46 @@
+package com.dtt.lgsp.data.handler;
+
+public class CellKey {
+	public static final int STT=0;
+	public static final int MA_BN=1;
+	public static final int HO_TEN=2;
+	public static final int NGAY_SINH=3;
+	public static final int GIOI_TINH=4;
+	public static final int DIA_CHI=5;
+	public static final int MA_THE=6;
+	public static final int MA_DKBD=7;
+	public static final int GT_THE_TU=8;
+	public static final int GT_THE_DEN=9;
+	public static final int MA_BENH=10;
+	public static final int MA_BENHKHAC=11;
+	public static final int MA_LYDO_VVIEN=12;
+	public static final int MA_NOI_CHUYEN=13;
+	public static final int NGAY_VAO=14;
+	public static final int NGAY_RA=15;
+	public static final int SO_NGAY_DTRI=16;
+	public static final int KET_QUA_DTRI=17;
+	public static final int TINH_TRANG_RV=18;
+	public static final int T_TONGCHI=19;
+	public static final int T_XN=20;
+	public static final int T_CDHA=21;
+	public static final int T_THUOC=22;
+	public static final int T_MAU=23;
+	public static final int T_PTTT=24;
+	public static final int T_VTYT=25;
+	public static final int T_DVKT_TYLE=26;
+	public static final int T_THUOC_TYLE=27;
+	public static final int T_VTYT_TYLE=28;
+	public static final int T_KHAM=29;
+	public static final int T_GIUONG=30;
+	public static final int T_VCHUYEN=31;
+	public static final int T_BNTT=32;
+	public static final int T_BHTT=33;
+	public static final int T_NGOAIDS=34;
+	public static final int MA_KHOA=35;
+	public static final int NAM_QT=36;
+	public static final int THANG_QT=37;
+	public static final int MA_KHUVUC=38;
+	public static final int MA_LOAIKCB=39;
+	public static final int MA_CSKCB=40;
+	public static final int T_NGUONKHAC=41;
+}

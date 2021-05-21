@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xsd:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="GIAMDINHHS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="THONGTINDONVI">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MACSKCB" type="xs:unsignedInt" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="THONGTINHOSO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NGAYLAP" type="xs:unsignedInt" />
+              <xs:element name="SOLUONGHOSO" type="xs:unsignedByte" />
+              <xs:element name="DANHSACHHOSO">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="HOSO">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="FILEHOSO">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="LOAIHOSO" type="xs:string" />
+                                <xs:element name="NOIDUNGFILE" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CHUKYDONVI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xsd:schema>
