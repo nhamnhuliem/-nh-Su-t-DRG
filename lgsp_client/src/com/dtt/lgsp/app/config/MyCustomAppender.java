@@ -7,14 +7,17 @@ import org.apache.log4j.Level;
 import org.apache.log4j.spi.LoggingEvent;
 
 import com.dtt.lgsp.app.ProcessingViewer;
+import com.dtt.lgsp.app.SettingViewer;
 
 
 public class MyCustomAppender extends AppenderSkeleton {
 
 	private JTextArea jTextA;
+	private JTextArea jTextB;
 
     public MyCustomAppender() {
         jTextA = new ProcessingViewer().getTxtLog();
+        jTextB = new SettingViewer().gettxtLog2();
     }
     protected void append(LoggingEvent event) 
     {
@@ -22,7 +25,15 @@ public class MyCustomAppender extends AppenderSkeleton {
         	if(jTextA==null) {
         		jTextA = new ProcessingViewer().getTxtLog();
         	}
-        jTextA.append(event.getMessage().toString()+ "\n");
+        	jTextA.append(event.getMessage().toString()+ "\n");
+        	
+        	//
+        	
+        	
+        	if(jTextB==null) {
+        		jTextB = new SettingViewer().gettxtLog2();
+        	}
+        	jTextB.append(event.getMessage().toString()+ "\n");
         }
     }
     public void close() 

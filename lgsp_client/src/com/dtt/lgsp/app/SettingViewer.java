@@ -54,14 +54,25 @@ public class SettingViewer extends JPanel {
 	
 	private JPanel panel1;
 	private JPanel panel2;
-	private JPanel panel2_1;
 	
 	JFileChooser chooserFile;
 	JLabel lblPath_1;
+	
+	static JTextArea txtLog2;
+	static JScrollPane scrollPane_1;
+	
+	public JTextArea gettxtLog2() {
+		txtLog2 = new JTextArea();
+		txtLog2.setBorder(BorderFactory.createCompoundBorder(
+				txtLog2.getBorder(), 
+		        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+		scrollPane_1 = new JScrollPane();
+		return txtLog2;
+	}
 
-//	private static Timer timer;
 	public SettingViewer() {
-		createUI();
+		//createUI();
+		//gettxtLog2();
 	}
 
 	public void createUI() {
@@ -76,7 +87,7 @@ public class SettingViewer extends JPanel {
 		
 		panel1 = creatPanel1(profileEntity);
 		
-		panel2_1 = creatPanel2(profileEntity);		
+		panel2 = creatPanel2(profileEntity);		
 		
 	
 		
@@ -88,7 +99,7 @@ public class SettingViewer extends JPanel {
 		tabbedPane.setBounds(0, 0, 770, 570);
 		
 		tabbedPane.addTab("Cấu hình thư mục", folderIcon, panel1,"Cấu hình thư mục");
-		tabbedPane.addTab("Import file XML", importIcon, panel2_1,"XML");
+		tabbedPane.addTab("Import file XML", importIcon, panel2,"XML");
 		
 		
 		add(parentPanel);
@@ -98,11 +109,11 @@ public class SettingViewer extends JPanel {
 	
 	private JPanel creatPanel2(ProfileEntity profileEntity) {
 		// khoi tao panel2 import file truc tiep
-		panel2_1 = new JPanel();
-		panel2_1.setLocation(0, 11);
-		panel2_1.setOpaque(false);
-		panel2_1.setSize(770, 570);
-		panel2_1.setLayout(null);
+		panel2 = new JPanel();
+		panel2.setLocation(0, 11);
+		panel2.setOpaque(false);
+		panel2.setSize(770, 570);
+		panel2.setLayout(null);
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("Chọn File để đồng bộ");
@@ -110,13 +121,13 @@ public class SettingViewer extends JPanel {
 		lblNewLabel_2.setForeground(Color.BLACK);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2.setBounds(10, 55, 153, 17);
-		panel2_1.add(lblNewLabel_2);
+		panel2.add(lblNewLabel_2);
 		
 		lblPath_1 = new JLabel("");
 		lblPath_1.setForeground(new Color(0, 0, 128));
 		lblPath_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblPath_1.setBounds(313, 55, 426, 20);
-		panel2_1.add(lblPath_1);
+		panel2.add(lblPath_1);
 		
 		JButton btnFile = new JButton("Chọn file...");
 		btnFile.addActionListener(new ActionListener() {
@@ -137,27 +148,28 @@ public class SettingViewer extends JPanel {
 			}
 		});
 		btnFile.setBounds(173, 54, 130, 23);
-		panel2_1.add(btnFile);
+		panel2.add(btnFile);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 172, 745, 319);
-		panel2_1.add(scrollPane_1);
-		panel2_1.add(scrollPane_1);
+		txtLog2 = new JTextArea();
+		txtLog2.setForeground(new Color(50, 205, 50));
+		txtLog2.setEditable(false);
+		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtLog2.setBackground(Color.BLACK);
+		txtLog2.setLineWrap(true);
+		txtLog2.setWrapStyleWord(true);
 		
-		JTextArea txtLog = new JTextArea();
-		scrollPane_1.setColumnHeaderView(txtLog);
-		txtLog.setForeground(new Color(50, 205, 50));
-		txtLog.setEditable(false);
-		txtLog.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtLog.setBackground(Color.BLACK);
-		txtLog.setLineWrap(true);
-		txtLog.setWrapStyleWord(true);
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_1.setBounds(10, 140, 745, 314);
+		scrollPane_1.add(txtLog2);
+		scrollPane_1.setViewportView(txtLog2);
+		
+		panel2.add(scrollPane_1);
 		
 		JButton btnDongBoFile = new JButton("Đồng bộ");
 		btnDongBoFile.setBounds(173, 92, 130, 23);
-		panel2_1.add(btnDongBoFile);
+		panel2.add(btnDongBoFile);
 		
-		return panel2_1;
+		return panel2;
 	}
 	
 	 private JPanel creatPanel1(ProfileEntity profileEntity) {
