@@ -47,13 +47,164 @@ public class TongHop {
 	private Date ngay_tao;
 	private int trangthai;
 	
+	private String noi_ttoan;
+	private int giam_dinh;
+	private double t_xuattoan;
+	private String lydo_xt;
+	private double t_datuyen;
+	private double t_vuottran;
+	private double t_dvkt_tyle;
+	private double t_thuoc_tyle;
+	private double t_vtyt_tyle;
+	private double t_kham;
+	private double t_giuong;
+	private double t_vchuyen;
+	private double t_mau;
+	private double t_pttt;
+	private double t_xn;
+	private double t_cdha;
+	
+	
+	
 	public TongHop() {
 		
 	}
 	
+	//
+	
+	
+	//
 	public String getMa_lk() {
 		return ma_lk;
 	}
+	public String getNoi_ttoan() {
+		return noi_ttoan;
+	}
+
+	public void setNoi_ttoan(String noi_ttoan) {
+		this.noi_ttoan = noi_ttoan;
+	}
+
+	public int getGiam_dinh() {
+		return giam_dinh;
+	}
+
+	public void setGiam_dinh(int giam_dinh) {
+		this.giam_dinh = giam_dinh;
+	}
+
+	public double getT_xuattoan() {
+		return t_xuattoan;
+	}
+
+	public void setT_xuattoan(double t_xuattoan) {
+		this.t_xuattoan = t_xuattoan;
+	}
+
+	public String getLydo_xt() {
+		return lydo_xt;
+	}
+
+	public void setLydo_xt(String lydo_xt) {
+		this.lydo_xt = lydo_xt;
+	}
+
+	public double getT_datuyen() {
+		return t_datuyen;
+	}
+
+	public void setT_datuyen(double t_datuyen) {
+		this.t_datuyen = t_datuyen;
+	}
+
+	public double getT_vuottran() {
+		return t_vuottran;
+	}
+
+	public void setT_vuottran(double t_vuottran) {
+		this.t_vuottran = t_vuottran;
+	}
+
+	public double getT_dvkt_tyle() {
+		return t_dvkt_tyle;
+	}
+
+	public void setT_dvkt_tyle(double t_dvkt_tyle) {
+		this.t_dvkt_tyle = t_dvkt_tyle;
+	}
+
+	public double getT_thuoc_tyle() {
+		return t_thuoc_tyle;
+	}
+
+	public void setT_thuoc_tyle(double t_thuoc_tyle) {
+		this.t_thuoc_tyle = t_thuoc_tyle;
+	}
+
+	public double getT_vtyt_tyle() {
+		return t_vtyt_tyle;
+	}
+
+	public void setT_vtyt_tyle(double t_vtyt_tyle) {
+		this.t_vtyt_tyle = t_vtyt_tyle;
+	}
+
+	public double getT_kham() {
+		return t_kham;
+	}
+
+	public void setT_kham(double t_kham) {
+		this.t_kham = t_kham;
+	}
+
+	public double getT_giuong() {
+		return t_giuong;
+	}
+
+	public void setT_giuong(double t_giuong) {
+		this.t_giuong = t_giuong;
+	}
+
+	public double getT_vchuyen() {
+		return t_vchuyen;
+	}
+
+	public void setT_vchuyen(double t_vchuyen) {
+		this.t_vchuyen = t_vchuyen;
+	}
+
+	public double getT_mau() {
+		return t_mau;
+	}
+
+	public void setT_mau(double t_mau) {
+		this.t_mau = t_mau;
+	}
+
+	public double getT_pttt() {
+		return t_pttt;
+	}
+
+	public void setT_pttt(double t_pttt) {
+		this.t_pttt = t_pttt;
+	}
+
+	public double getT_xn() {
+		return t_xn;
+	}
+
+	public void setT_xn(double t_xn) {
+		this.t_xn = t_xn;
+	}
+
+	public double getT_cdha() {
+		return t_cdha;
+	}
+
+	public void setT_cdha(double t_cdha) {
+		this.t_cdha = t_cdha;
+	}
+
 	public void setMa_lk(String ma_lk) {
 		this.ma_lk = ma_lk;
 	}

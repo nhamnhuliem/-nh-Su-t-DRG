@@ -75,95 +75,128 @@ public class ReadExcelData extends ThreadProcess3360{
 	                try {
 	                	 switch (columnIndex) {
 			                case CellKey.STT:
-			                	tongHop.setStt(parseToInt(cell));;
+			                	tongHop.setStt(parseToInt(cell));
 			                    break;
 			                case CellKey.DIA_CHI:
 			                	tongHop.setDia_chi((String) getCellValue(cell));
 			                    break;
 			                case CellKey.GIOI_TINH:
-			                	tongHop.setGioi_tinh(parseToInt(cell));;
+			                	tongHop.setGioi_tinh(parseToInt(cell));
 			                    break;
 			                case CellKey.GT_THE_DEN:
-			                	tongHop.setGt_the_den((String) getCellValue(cell));;
+			                	tongHop.setGt_the_den((String) getCellValue(cell));
 			                    break;
 			                case CellKey.GT_THE_TU:
-			                	tongHop.setGt_the_tu((String) getCellValue(cell));;
+			                	tongHop.setGt_the_tu((String) getCellValue(cell));
 			                    break;
 			                case CellKey.HO_TEN:
-			                	tongHop.setHo_ten((String) getCellValue(cell));;
+			                	tongHop.setHo_ten((String) getCellValue(cell));
 			                    break;
 			                case CellKey.KET_QUA_DTRI:
-			                	tongHop.setKet_qua_dtri(parseToInt(cell));;
+			                	tongHop.setKet_qua_dtri(parseToInt(cell));
 			                    break;
 			                case CellKey.MA_BENH:
-			                	tongHop.setMa_benh((String) getCellValue(cell));;
+			                	tongHop.setMa_benh((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_BENHKHAC:
-			                	tongHop.setMa_benhkhac((String) getCellValue(cell));;
+			                	tongHop.setMa_benhkhac((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_BN:
-			                	tongHop.setMa_bn((String) getCellValue(cell));;
+			                	tongHop.setMa_bn((String) getCellValue(cell));
 			                	tongHop.setMa_lk((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_CSKCB:
-			                	tongHop.setMa_cskcb((String) getCellValue(cell));;
+			                	tongHop.setMa_cskcb((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_DKBD:
-			                	tongHop.setMa_dkbd((String) getCellValue(cell));;
+			                	tongHop.setMa_dkbd((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_KHOA:
-			                	tongHop.setMa_khoa((String) getCellValue(cell));;
+			                	tongHop.setMa_khoa((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_KHUVUC:
-			                	tongHop.setMa_khuvuc((String) getCellValue(cell));;
+			                	tongHop.setMa_khuvuc((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_LOAIKCB:
-			                	tongHop.setMa_loai_kcb(parseToInt(cell));;
+			                	tongHop.setMa_loai_kcb(parseToInt(cell));
 			                    break;
 			                case CellKey.MA_LYDO_VVIEN:
-			                	tongHop.setMa_lydo_vvien(parseToInt(cell));;
+			                	tongHop.setMa_lydo_vvien(parseToInt(cell));
 			                    break;
 			                case CellKey.MA_NOI_CHUYEN:
-			                	tongHop.setMa_noi_chuyen((String) getCellValue(cell));;
+			                	tongHop.setMa_noi_chuyen((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_THE:
-			                	tongHop.setMa_the((String) getCellValue(cell));;
+			                	tongHop.setMa_the((String) getCellValue(cell));
 			                    break;
 			                case CellKey.NAM_QT:
-			                	tongHop.setNam_qt(parseToInt(cell));;
+			                	tongHop.setNam_qt(parseToInt(cell));
 			                    break;
 			                case CellKey.THANG_QT:
-			                	tongHop.setThang_qt(parseToInt(cell));;
+			                	tongHop.setThang_qt(parseToInt(cell));
 			                    break;
 			                case CellKey.NGAY_RA:
-			                	tongHop.setNgay_ra((String) getCellValue(cell));;
+			                	tongHop.setNgay_ra((String) getCellValue(cell));
 			                    break;
 			                case CellKey.NGAY_SINH:
-			                	tongHop.setNgay_sinh((String) getCellValue(cell));;
+			                	tongHop.setNgay_sinh((String) getCellValue(cell));
 			                    break;
 			                case CellKey.NGAY_VAO:
-			                	tongHop.setNgay_vao((String) getCellValue(cell));;
+			                	tongHop.setNgay_vao((String) getCellValue(cell));
 			                    break;
 			                case CellKey.SO_NGAY_DTRI:
-			                	tongHop.setSo_ngay_dtri(parseToDouble(cell));;
+			                	tongHop.setSo_ngay_dtri(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_BHTT:
-			                	tongHop.setT_bhtt(parseToDouble(cell));;
+			                	tongHop.setT_bhtt(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_BNTT:
-			                	tongHop.setT_bntt(parseToDouble(cell));;
+			                	tongHop.setT_bntt(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_TONGCHI:
-			                	tongHop.setT_tongchi(parseToDouble(cell));;
+			                	tongHop.setT_tongchi(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_THUOC:
-			                	tongHop.setT_thuoc(parseToDouble(cell));;
+			                	tongHop.setT_thuoc(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_VTYT:
-			                	tongHop.setT_vtyt(parseToDouble(cell));;
+			                	tongHop.setT_vtyt(parseToDouble(cell));
 			                    break;
 			                case CellKey.T_NGUONKHAC:
-			                	tongHop.setT_nguonkhac(parseToDouble(cell));;
+			                	tongHop.setT_nguonkhac(parseToDouble(cell));
+			                    break;
+			                    
+			                    /// 3360
+			                case CellKey.T_XN:
+			                	tongHop.setT_xn(parseToDouble(cell));
+			                    break;
+			                    
+			                case CellKey.T_PTTT:
+			                	tongHop.setT_pttt(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_CDHA:
+			                	tongHop.setT_cdha(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_MAU:
+			                	tongHop.setT_mau(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_VCHUYEN:
+			                	tongHop.setT_vchuyen(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_KHAM:
+			                	tongHop.setT_kham(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_VTYT_TYLE:
+			                	tongHop.setT_vtyt_tyle(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_THUOC_TYLE:
+			                	tongHop.setT_thuoc_tyle(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_DVKT_TYLE:
+			                	tongHop.setT_dvkt_tyle(parseToDouble(cell));
+			                    break;
+			                case CellKey.T_GIUONG:
+			                	tongHop.setT_giuong(parseToDouble(cell));
 			                    break;
 			                default:
 			                    break;

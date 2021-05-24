@@ -39,7 +39,7 @@ import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")
 public class LogViewer extends JPanel {
-	static final Logger logger = Logger.getLogger(LogViewer2.class);
+	static final Logger logger = Logger.getLogger(LogViewer.class);
 	JScrollPane scroll;
 	JTable table;
 	MyTableModel tableModel;
@@ -58,7 +58,7 @@ public class LogViewer extends JPanel {
 
 	public LogViewer() {
 
-		//createUI();
+		createUI();
 	}
 
 	public void createUI() {

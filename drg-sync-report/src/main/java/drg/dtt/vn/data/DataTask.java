@@ -42,7 +42,7 @@ public class DataTask {
 			if(thongKe != null) {
 				log.info("insert to Report");
 				try {
-					Report rp = new Report(maCoSo, thongKe.getMaLk(), 0, thongKe.getNam(), thongKe.getThang(), 0, thongKe.getTongChi(), thongKe.getTongBHTT());
+					Report rp = new Report(maCoSo, thongKe.getMaLk(), 0, thongKe.getNam(), thongKe.getThang(), 1, thongKe.getTongChi(), thongKe.getTongBHTT());
 					reportService.save(rp);
 				} catch (Exception e) {
 					log.info(e.getMessage());

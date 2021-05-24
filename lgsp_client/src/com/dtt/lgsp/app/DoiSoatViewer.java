@@ -45,7 +45,7 @@ import javax.swing.JFileChooser;
 
 @SuppressWarnings("serial")
 public class DoiSoatViewer extends JPanel {
-	static final Logger logger = Logger.getLogger(LogViewer2.class);
+	static final Logger logger = Logger.getLogger(DoiSoatViewer.class);
 	JScrollPane scroll;
 	JTable table;
 	MyTableModel tableModel;
