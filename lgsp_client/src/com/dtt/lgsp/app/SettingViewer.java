@@ -89,6 +89,20 @@ public class SettingViewer extends JPanel {
 		
 		panel2 = creatPanel2(profileEntity);		
 		
+		txtLog2 = new JTextArea();
+		txtLog2.setForeground(new Color(50, 205, 50));
+		txtLog2.setEditable(false);
+		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtLog2.setBackground(Color.BLACK);
+		txtLog2.setLineWrap(true);
+		txtLog2.setWrapStyleWord(true);
+		
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_1.setBounds(10, 140, 745, 314);
+		scrollPane_1.add(txtLog2);
+		scrollPane_1.setViewportView(txtLog2);
+		
+		panel2.add(scrollPane_1);
 	
 		
 		ImageIcon folderIcon = new ImageIcon(SettingViewer.class.getResource("/images/folder-icon.png"));
@@ -149,21 +163,6 @@ public class SettingViewer extends JPanel {
 		});
 		btnFile.setBounds(173, 54, 130, 23);
 		panel2.add(btnFile);
-		
-		txtLog2 = new JTextArea();
-		txtLog2.setForeground(new Color(50, 205, 50));
-		txtLog2.setEditable(false);
-		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtLog2.setBackground(Color.BLACK);
-		txtLog2.setLineWrap(true);
-		txtLog2.setWrapStyleWord(true);
-		
-		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane_1.setBounds(10, 140, 745, 314);
-		scrollPane_1.add(txtLog2);
-		scrollPane_1.setViewportView(txtLog2);
-		
-		panel2.add(scrollPane_1);
 		
 		JButton btnDongBoFile = new JButton("Đồng bộ");
 		btnDongBoFile.setBounds(173, 92, 130, 23);
