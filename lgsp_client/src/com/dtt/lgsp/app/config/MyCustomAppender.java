@@ -26,7 +26,7 @@ public class MyCustomAppender extends AppenderSkeleton {
         		jTextA = new ProcessingViewer().getTxtLog();
         	}
         	jTextA.append(event.getMessage().toString()+ "\n");
-        	
+//        	
         	//
         	
         	

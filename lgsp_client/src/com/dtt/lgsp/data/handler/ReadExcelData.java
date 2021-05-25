@@ -299,7 +299,7 @@ public class ReadExcelData extends ThreadProcess3360{
 						++DttCron.thanhCong;
 						++tongHoSoFile;
 						
-						successHoSoSync(result.getDescription());
+						FileHandler.successHoSoSync(result.getDescription());
 						sleep((long) (config.getTimeSlepp() * 1000));
 						logger.info("Gửi thành công : " + (DttCron.thanhCong) + "(hồ sơ) - time: " + config.getTimeSlepp());
 						return true;

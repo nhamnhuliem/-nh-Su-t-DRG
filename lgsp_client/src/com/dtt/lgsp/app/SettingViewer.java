@@ -31,7 +31,9 @@ import com.dtt.lgsp.app.business.DttConsumer;
 import com.dtt.lgsp.app.config.PreferencesConfiguration;
 import com.dtt.lgsp.app.core.LoaiHoSoEnum;
 import com.dtt.lgsp.app.cron.DttCron;
+import com.dtt.lgsp.app.cron.ImportFileProcess;
 import com.dtt.lgsp.app.cron.KetQuaCron;
+import com.dtt.lgsp.data.handler.ReadExcelData;
 import com.dtt.lgsp.entities.ProfileEntity;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -89,7 +91,6 @@ public class SettingViewer extends JPanel {
 		
 		panel2 = creatPanel2(profileEntity);		
 		
-		txtLog2 = new JTextArea();
 		txtLog2.setForeground(new Color(50, 205, 50));
 		txtLog2.setEditable(false);
 		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -154,9 +155,7 @@ public class SettingViewer extends JPanel {
 				chooserFile.setAcceptAllFileFilterUsed(false);
 				//
 				if (chooserFile.showOpenDialog(panel2) == JFileChooser.APPROVE_OPTION) {
-					logger.info("getCurrentDirectory(): " + chooserFile.getCurrentDirectory());
-					logger.info("getSelectedFile() : " + chooserFile.getSelectedFile());
-
+					logger.info("file đã chọn: " + chooserFile.getSelectedFile());
 					lblPath_1.setText(chooserFile.getSelectedFile().toString());
 				}
 			}
@@ -165,6 +164,17 @@ public class SettingViewer extends JPanel {
 		panel2.add(btnFile);
 		
 		JButton btnDongBoFile = new JButton("Đồng bộ");
+		btnDongBoFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					ImportFileProcess thread = new ImportFileProcess(profileEntity, chooserFile.getSelectedFile().toString());
+					thread.run();
+					chooserFile.removeAll();
+					lblPath_1.setText("");
+				} catch (Exception e) {
+				}
+			}
+		});
 		btnDongBoFile.setBounds(173, 92, 130, 23);
 		panel2.add(btnDongBoFile);
 		

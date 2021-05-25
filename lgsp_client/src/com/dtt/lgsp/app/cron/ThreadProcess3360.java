@@ -31,6 +31,7 @@ import com.dtt.lgsp.app.utils.HoSoXmlUtils;
 import com.dtt.lgsp.dao.HoSoSynedUtil;
 import com.dtt.lgsp.dao.TableFileSynedUtil;
 import com.dtt.lgsp.data.handler.CellKey;
+import com.dtt.lgsp.data.handler.FileHandler;
 import com.dtt.lgsp.data.handler.ReadExcelData;
 import com.dtt.lgsp.entities.FileSynedEntity;
 import com.dtt.lgsp.entities.HoSoSyncEntity;
@@ -81,16 +82,16 @@ public class ThreadProcess3360 extends Thread {
 						handler.readExcel(fileRoot.toString());
 						
 						if (thanhCong == DttCron.thanhCong) {
-							errorFile(fis, fileRoot);
+							FileHandler.errorFile(fis, fileRoot);
 						}
 					} catch (Exception e) {
 						logger.error(e.getMessage());
-						errorFile(fis, fileRoot);
+						FileHandler.errorFile(fis, fileRoot);
 					}
-					successFile(fis, fileRoot, String.valueOf(tongHoSoFile));
+					FileHandler.successFile(fis, fileRoot, String.valueOf(tongHoSoFile));
 				} catch (Exception e) {
 					logger.error(e.getMessage());
-					errorFile(fis, fileRoot);
+					FileHandler.errorFile(fis, fileRoot);
 
 					
 				}
@@ -104,56 +105,4 @@ public class ThreadProcess3360 extends Thread {
 		}
 	}
 	
-	private void errorFile(FileInputStream fis,File fileRoot) {
-		logger.info("Công cụ đọc file thấy có lỗi, có thể file không đúng định dạng 4210 theo quy định... ");
-		if(fis != null) {
-			try {
-				fis.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		String folderErors = DrgEnum.BACKUP.getValue() + "\\" + DateUtil.getCurrentDate() + "\\LOI_FILE";
-		HoSoXmlUtils.saveFile(fileRoot, folderErors, DateUtil.getCurrentDate(),DrgEnum.LOI.getValue());
-		FileSynedEntity entity = new FileSynedEntity(UUID.randomUUID().toString()
-				, fileRoot.getName(), "ERROR", "0"
-				, DateUtil.parseDateToString(new Date(), DateUtil.DATE_FORMAT_D_M_Y_H_M)
-				,"Nội dung file không hợp lệ");
-		TableFileSynedUtil.insert(entity);
-	}
-	
-
-	private void successFile(FileInputStream fis,File fileRoot,String count) {
-		if(Integer.valueOf(count) > 0) {
-			logger.info("Thông báo: Đã xử lý xong hồ sơ file["+ fileRoot.getName()+"], số lượng hồ sơ đã gửi: "+count);
-		}
-		if(fis != null) {
-			try {
-				fis.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		FileUtility.deleted(fileRoot);
-		TableFileSynedUtil.fileMap.put(fileRoot.getName(), count);
-		
-		FileSynedEntity entity = new FileSynedEntity(UUID.randomUUID().toString()
-				, fileRoot.getName(), "OK", count
-				, DateUtil.parseDateToString(new Date(), DateUtil.DATE_FORMAT_D_M_Y_H_M)
-				,"");
-		TableFileSynedUtil.insert(entity);
-	}
-	
-	
-	protected void successHoSoSync(String malk) {
-		HoSoSynedUtil.hoSoMap.put(malk, malk);
-		HoSoSyncEntity entity = new HoSoSyncEntity(UUID.randomUUID().toString(), malk,
-				DateUtil.parseDateToString(new Date(), DateUtil.DATE_FORMAT_D_M_Y_H_M), "");
-		HoSoSynedUtil.insert(entity);
-	}
-	
-
 }
