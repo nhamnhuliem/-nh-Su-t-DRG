@@ -3,10 +3,13 @@ package drg.dtt.vn.controller;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,7 @@ import drg.dtt.vn.services.ReportService;
 import drg.dtt.vn.services.TongHopChiTietService;
 import drg.dtt.vn.services.TongHopService;
 import drg.dtt.vn.utils.Base64Utils;
+import drg.dtt.vn.utils.DateUtil;
 import drg.dtt.vn.utils.HashFunction;
 import drg.dtt.vn.utils.VariableStatic;
 import drg.dtt.vn.utils.XSDUtil;
@@ -286,7 +290,11 @@ public class SyncController {
 			@RequestParam(value = "maCoSo", required = true) String maCoSo,
 			@RequestParam(value = "maLk", required = true) String maLk,
 			@RequestParam(value = "nam", required = true) int nam,
-			@RequestParam(value = "thang", required = true) int thang) {
+			@RequestParam(value = "thang", required = true) int thang,
+			@RequestParam(value = "tuNgay", required = true) String tuNgay,
+			@RequestParam(value = "denNgay", required = true) String denNgay
+			
+			) {
 
 		List<String> fileds = new ArrayList<String>();
 		fileds.add(maCoSo);
@@ -297,7 +305,15 @@ public class SyncController {
 			new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
 		} else {
 		}
-		count =reportService.countAllByCS_LK_NAM_THANG(maCoSo, maLk, nam, thang);
+		Date tuNgayD = DateUtil.parseStringToDate("9999-01-01", "yyyy-MM-dd");
+		Date denNgayD = DateUtil.parseStringToDate("9999-01-01", "yyyy-MM-dd");
+		if(StringUtils.isNotEmpty(tuNgay)) {
+			tuNgayD = DateUtil.parseStringToDate(tuNgay, "yyyy-MM-dd");
+		}
+		if(StringUtils.isNotEmpty(denNgay)) {
+			denNgayD = DateUtil.parseStringToDate(denNgay, "yyyy-MM-dd");
+		}
+		count =reportService.countAllByCS_LK_NAM_THANG(maCoSo, maLk, nam, thang, tuNgayD, denNgayD);
 		return new ResponseEntity<Integer>(count, HttpStatus.OK);
 	}
 
@@ -308,6 +324,8 @@ public class SyncController {
 			@RequestParam(value = "maLk", required = true) String maLk,
 			@RequestParam(value = "nam", required = true) int nam,
 			@RequestParam(value = "thang", required = true) int thang,
+			@RequestParam(value = "tuNgay", required = true) String tuNgay,
+			@RequestParam(value = "denNgay", required = true) String denNgay,
 			@RequestParam(value = "limit", required = true) int limit,
 			@RequestParam(value = "offset", required = true) int offset
 			
@@ -319,7 +337,16 @@ public class SyncController {
 		String maXacThuchash = hashFunction.hashAllFields(fileds, secretCode);
 		if (maXacThuchash.equals(maXacThuc)) {
 		}
-		listReport = reportService.getAllByCS_LK_NAM_THANG(maCoSo, maLk, nam, thang, offset, limit);
+		
+		Date tuNgayD = DateUtil.parseStringToDate("9999-01-01", "yyyy-MM-dd");
+		Date denNgayD = DateUtil.parseStringToDate("9999-01-01", "yyyy-MM-dd");
+		if(StringUtils.isNotEmpty(tuNgay)) {
+			tuNgayD = DateUtil.parseStringToDate(tuNgay, "yyyy-MM-dd");
+		}
+		if(StringUtils.isNotEmpty(denNgay)) {
+			denNgayD = DateUtil.parseStringToDate(denNgay, "yyyy-MM-dd");
+		}
+		listReport = reportService.getAllByCS_LK_NAM_THANG(maCoSo, maLk, nam, thang,tuNgayD, denNgayD, offset, limit);
 		return listReport;
 	}
 	
@@ -406,30 +433,30 @@ public class SyncController {
 				new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
 			} else {
 			}
-			count =tongHopChiTietService.countChiTietSync(maCoSo);
+			count =reportService.countChiTietSync(maCoSo);
 			return new ResponseEntity<Integer>(count, HttpStatus.OK);
 		}
 
 		@PostMapping(path = "/getChiTietSync")
-		public @ResponseBody List<TongHopChiTiet> getChiTietSync(
+		public @ResponseBody List<Report> getChiTietSync(
 				@RequestParam(value = "maXacThuc", required = true) String maXacThuc,
 				@RequestParam(value = "maCoSo", required = true) String maCoSo,
 				@RequestParam(value = "limit", required = true) int limit
 				
 				) {
-			List<TongHopChiTiet> listReport = new ArrayList<TongHopChiTiet>();
+			List<Report> listReport = new ArrayList<Report>();
 			List<String> fileds = new ArrayList<String>();
 			fileds.add(maCoSo);
 			HashFunction hashFunction = new HashFunction();
 			String maXacThuchash = hashFunction.hashAllFields(fileds, secretCode);
 			if (maXacThuchash.equals(maXacThuc)) {
 			}
-			listReport = tongHopChiTietService.getChiTietSync(maCoSo, limit);
+			listReport = reportService.getChiTietSync(maCoSo, limit);
 			try {
 				long minId = listReport.get(0).getId();
 				long maxId= listReport.get(listReport.size() -1).getId();
 				
-				tongHopChiTietService.updateTrangThai(maCoSo, minId, maxId);
+				reportService.updateTrangThai(maCoSo, minId, maxId);
 			} catch (Exception e) {
 				log.error(e.getMessage());
 			}

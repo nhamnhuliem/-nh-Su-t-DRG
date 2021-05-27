@@ -103,7 +103,6 @@ public class ReadExcelData extends ThreadProcess3360{
 			                    break;
 			                case CellKey.MA_BN:
 			                	tongHop.setMa_bn((String) getCellValue(cell));
-			                	tongHop.setMa_lk((String) getCellValue(cell));
 			                    break;
 			                case CellKey.MA_CSKCB:
 			                	tongHop.setMa_cskcb((String) getCellValue(cell));
@@ -206,7 +205,9 @@ public class ReadExcelData extends ThreadProcess3360{
 					}
 	 
 	            }
-	            if(StringUtils.isNotEmpty(tongHop.getMa_lk())) {
+	            if(StringUtils.isNotEmpty(tongHop.getMa_bn())){
+	            	String maLk = tongHop.getMa_bn() + "-" + tongHop.getNgay_vao();
+	            	tongHop.setMa_lk(maLk);
 	            	ThongKe thongKe = new ThongKe(tongHop.getThang_qt(), tongHop.getNam_qt(), tongHop.getMa_lk(), tongHop.getT_tongchi(), tongHop.getT_bhtt());
 	            	HoSo hoSo = new HoSo(tongHop, null, null, thongKe);
 	            	dongBoHoSo(hoSo, 2, 1);

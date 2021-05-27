@@ -3,11 +3,15 @@ package com.dtt.lgsp.app.cron;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import com.dtt.lgsp.app.utils.FileUtility;
 import com.dtt.lgsp.data.handler.FileHandler;
 import com.dtt.lgsp.data.handler.ReadExcelData;
+import com.dtt.lgsp.data.handler.XMLDataHandler;
 import com.dtt.lgsp.entities.ProfileEntity;
 
 public class ImportFileProcess extends Thread {
@@ -42,9 +46,16 @@ public class ImportFileProcess extends Thread {
 				logger.info("Công cụ bắt đầu đọc file để xử lý : " + filePath + ", vui lòng đợi ....");
 				fileRoot = new File(filePath);
 				try {
-					
-					ReadExcelData handler = new ReadExcelData(profileEntity);
-					handler.readExcel(fileRoot.toString());
+					if(filePath.contains(".XLM") || filePath.contains(".xml")) {
+						XMLDataHandler xmlHandler = new XMLDataHandler(profileEntity);
+						xmlHandler.xmlDataHandler(filePath);
+					}else if(filePath.contains(".xlsx") || filePath.contains(".xls")) {
+						ReadExcelData handler = new ReadExcelData(profileEntity);
+						handler.readExcel(fileRoot.toString());
+					}else {
+						JOptionPane.showMessageDialog(null, "File chọn không đúng định dạng", "",
+								JOptionPane.ERROR_MESSAGE);
+					}
 					
 					if (thanhCong == DttCron.thanhCong) {
 						FileHandler.errorFile(fis, fileRoot);
@@ -65,5 +76,4 @@ public class ImportFileProcess extends Thread {
 			}
 		}
 	}
-	
 }

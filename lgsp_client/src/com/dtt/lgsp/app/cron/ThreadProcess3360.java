@@ -67,7 +67,7 @@ public class ThreadProcess3360 extends Thread {
 		if (CollectionUtils.isNotEmpty(lstAllFile)) {
 			File fileRoot = null;
 			for (String item : lstAllFile) {		
-				if(item.contains("xml") || item.contains("XML")) {
+				if(item.contains(".xml") || item.contains(".XML")) {
 					logger.info("Hệ thống phát hiện file " + item +" xml, vui lòng chuyển cấu hình loại dữ liệu 4210 để gửi.");
 					return;
 				}

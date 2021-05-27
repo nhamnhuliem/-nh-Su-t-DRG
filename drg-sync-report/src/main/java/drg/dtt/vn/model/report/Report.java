@@ -1,5 +1,7 @@
 package drg.dtt.vn.model.report;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,10 +34,36 @@ public class Report {
 	
 	@Column(name = "tong_bhtt")
     private double tongBHTT;
+	
+	@Column(name = "ngay_tao")
+    private Date ngayTao;
+	
+	@Column(name = "namqt")
+    private int namQT;
+  	@Column(name = "thangqt")
+    private int thangQT;
   	
   	
   	
   	
+	public Date getNgayTao() {
+		return ngayTao;
+	}
+	public void setNgayTao(Date ngayTao) {
+		this.ngayTao = ngayTao;
+	}
+	public int getNamQT() {
+		return namQT;
+	}
+	public void setNamQT(int namQT) {
+		this.namQT = namQT;
+	}
+	public int getThangQT() {
+		return thangQT;
+	}
+	public void setThangQT(int thangQT) {
+		this.thangQT = thangQT;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -94,8 +122,9 @@ public class Report {
 		this.tongBHTT = tongBHTT;
 	}
 
+	
 	public Report(String maCoSo, String maLk, int loaiHoSo, int nam, int thang, int trangThai, double tongChi,
-			double tongBHTT) {
+			double tongBHTT, Date ngayTao, int namQT, int thangQT) {
 		super();
 		this.maCoSo = maCoSo;
 		this.maLk = maLk;
@@ -105,6 +134,9 @@ public class Report {
 		this.trangThai = trangThai;
 		this.tongChi = tongChi;
 		this.tongBHTT = tongBHTT;
+		this.ngayTao = ngayTao;
+		this.namQT = namQT;
+		this.thangQT = thangQT;
 	}
 	public Report() {
 		

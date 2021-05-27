@@ -173,7 +173,7 @@ public class DttConsumer {
 		}
 	}
 	
-	public static List<Report> getReport(String maLk, int nam, int thang, int limit, int offset) throws Exception {
+	public static List<Report> getReport(String maLk, int nam, int thang,String tuNgay, String denNgay, int limit, int offset) throws Exception {
 		List<Report> listReport = new ArrayList<Report>();
 		try {
 			String url = url_service + "/searchreport";
@@ -187,6 +187,8 @@ public class DttConsumer {
 			params.put("maLk", maLk);
 			params.put("nam", String.valueOf(nam) );
 			params.put("thang", String.valueOf(thang));
+			params.put("tuNgay", String.valueOf(tuNgay));
+			params.put("denNgay", String.valueOf(denNgay));
 			params.put("limit", String.valueOf(limit));
 			params.put("offset", String.valueOf(offset));
 			params.put("maCoSo", String.valueOf(profileEntity.getMaCoSo()));
@@ -206,7 +208,7 @@ public class DttConsumer {
 		return listReport;
 	}
 	
-	public static int countReport(String maLk, int nam, int thang) throws Exception {
+	public static int countReport(String maLk, int nam, int thang, String tuNgay, String denNgay) throws Exception {
 		int count = 0;
 		try {
 			String url = url_service + "/countreport";
@@ -219,6 +221,8 @@ public class DttConsumer {
 			params.put("maLk", maLk);
 			params.put("nam", String.valueOf(nam) );
 			params.put("thang", String.valueOf(thang));
+			params.put("tuNgay", String.valueOf(tuNgay));
+			params.put("denNgay", String.valueOf(denNgay));
 			params.put("maCoSo", String.valueOf(profileEntity.getMaCoSo()));
 
 			String strResult = new WsApiUtils().sendMessagePost(url, user, password, params);

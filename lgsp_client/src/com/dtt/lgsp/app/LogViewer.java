@@ -11,6 +11,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,9 +27,16 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.jdatepicker.DateLabelFormatter;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import com.dtt.lgsp.app.business.DttConsumer;
 import com.dtt.lgsp.app.core.MyTableModel;
+import com.dtt.lgsp.app.utils.DateUtil;
 import com.dtt.lgsp.entities.Report;
 import com.dtt.lgsp.table.ObjectTableModel;
 import com.dtt.lgsp.table.PaginatedTableDecorator;
@@ -51,10 +59,14 @@ public class LogViewer extends JPanel {
 	JComboBox thangDongBo;
 	JLabel lblTongHoSo;
 	JLabel lblDaGui;
+	JDatePickerImpl datePickerFrom;
+	JDatePickerImpl datePickerTo;
 	
 	static int nam = 0;
 	static int thang = 0;
 	static String maDotDieuTri = "";
+	static String tuNgay = "";
+	static String denNgay="";
 
 	public LogViewer() {
 
@@ -68,6 +80,8 @@ public class LogViewer extends JPanel {
 		contentPane.setSize(770, 550);
 		contentPane.setLayout(null);
 
+		add(contentPane);
+		
 		JLabel lblNewLabel_1 = new JLabel("KẾT QUẢ GỬI HỒ SƠ");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1.setForeground(new Color(178, 34, 34));
@@ -78,8 +92,32 @@ public class LogViewer extends JPanel {
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(200, 50, 400, 2);
 		contentPane.add(separator_2);
+		
+		//
+		UtilDateModel modelFrom = new UtilDateModel();
+		Properties p = new Properties();
+		p.put("text.today", "Today");
+		p.put("text.month", "Month");
+		p.put("text.year", "Year");
+		JDatePanelImpl datePanel = new JDatePanelImpl(modelFrom, p);
+		datePickerFrom = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+		datePickerFrom.setSize(123, 20);
+		datePickerFrom.setLocation(258, 89);
+		
+		UtilDateModel modelTo = new UtilDateModel();
+		Properties pTo = new Properties();
+		pTo.put("text.today", "Today");
+		pTo.put("text.month", "Month");
+		pTo.put("text.year", "Year");
+		JDatePanelImpl datePanelTo = new JDatePanelImpl(modelTo, pTo);
+		datePickerTo = new JDatePickerImpl(datePanelTo, new DateLabelFormatter());
+		datePickerTo.setSize(123, 23);
+		datePickerTo.setLocation(396, 89);
+		
+		contentPane.add(datePickerTo);
+		contentPane.add(datePickerFrom);
+		//
 
-		add(contentPane);
 
 		JLabel lblNewLabel = new JLabel("Năm:");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -101,7 +139,18 @@ public class LogViewer extends JPanel {
 					nam =  namItem.getId();
 					thang =  thangItem.getId();
 					maDotDieuTri = maLk.getText();
-					int total = DttConsumer.countReport(maDotDieuTri, nam, thang);
+					String dateFrom = datePickerFrom.getJFormattedTextField().getText();
+					String dateTo = datePickerTo.getJFormattedTextField().getText();
+					if(StringUtils.isNotEmpty(dateFrom)) {
+						Date tuNgayDate = DateUtil.parseStringToDate(dateFrom, DateUtil.DATE_FORMAT_D_M_Y);
+						tuNgay = DateUtil.parseDateToString(tuNgayDate, "yyy-MM-dd");
+					}
+					if(StringUtils.isNotEmpty(dateTo)) {
+						Date denNgayDate = DateUtil.parseStringToDate(dateTo, DateUtil.DATE_FORMAT_D_M_Y);
+						denNgay = DateUtil.parseDateToString(denNgayDate, "yyy-MM-dd");
+					}
+					
+					int total = DttConsumer.countReport(maDotDieuTri, nam, thang, tuNgay, denNgay);
 					//List<Report> list = new ArrayList<Report>();
 					lblDaGui.setText("Tổng hồ sơ đã gửi: ");
 					lblTongHoSo.setText(String.valueOf(total));
@@ -183,7 +232,7 @@ public class LogViewer extends JPanel {
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBackground(new Color(30, 144, 255));
-		btnNewButton.setBounds(338, 88, 89, 23);
+		btnNewButton.setBounds(10, 122, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblThng = new JLabel("Tháng:");
@@ -191,7 +240,7 @@ public class LogViewer extends JPanel {
 		lblThng.setForeground(Color.BLACK);
 		lblThng.setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		lblThng.setBackground(Color.WHITE);
-		lblThng.setBounds(118, 60, 88, 20);
+		lblThng.setBounds(135, 60, 88, 20);
 		contentPane.add(lblThng);
 		
 		JLabel lblM = new JLabel("Mã LK:");
@@ -199,12 +248,12 @@ public class LogViewer extends JPanel {
 		lblM.setForeground(Color.BLACK);
 		lblM.setFont(new Font("Segoe UI", Font.PLAIN, 11));
 		lblM.setBackground(Color.WHITE);
-		lblM.setBounds(229, 58, 88, 20);
+		lblM.setBounds(531, 65, 88, 20);
 		contentPane.add(lblM);
 		
 		maLk = new JTextField();
 		maLk.setColumns(10);
-		maLk.setBounds(229, 89, 100, 20);
+		maLk.setBounds(531, 92, 100, 20);
 		contentPane.add(maLk);
 		
 		// nam
@@ -212,7 +261,7 @@ public class LogViewer extends JPanel {
 		LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		int nam = localDate.getYear();
 		namDongBo = new JComboBox<Item>();
-		namDongBo.setBounds(10, 89, 100, 20);
+		namDongBo.setBounds(10, 89, 112, 20);
 		namDongBo.addItem(new Item(0, "--Chọn năm--"));
 		for(int i = nam;i >= nam - 4; i --) {
 			namDongBo.addItem(new Item(i, String.valueOf(i)));
@@ -226,19 +275,35 @@ public class LogViewer extends JPanel {
 			thangDongBo.addItem(new Item(j, String.valueOf(j)));
 		}
 		thangDongBo.setSelectedIndex(0);
-		thangDongBo.setBounds(117, 89, 100, 20);
+		thangDongBo.setBounds(134, 89, 112, 20);
 		contentPane.add(thangDongBo);
 		
 		lblDaGui = new JLabel("");
 		lblDaGui.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblDaGui.setBounds(10, 120, 123, 14);
+		lblDaGui.setBounds(111, 122, 123, 23);
 		contentPane.add(lblDaGui);
 		
 		lblTongHoSo = new JLabel("");
 		lblTongHoSo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblTongHoSo.setForeground(Color.RED);
-		lblTongHoSo.setBounds(140, 120, 126, 14);
+		lblTongHoSo.setBounds(239, 122, 126, 23);
 		contentPane.add(lblTongHoSo);
+		
+		JLabel lblTNgy = new JLabel("Từ ngày:");
+		lblTNgy.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTNgy.setForeground(Color.BLACK);
+		lblTNgy.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+		lblTNgy.setBackground(Color.WHITE);
+		lblTNgy.setBounds(260, 58, 89, 20);
+		contentPane.add(lblTNgy);
+		
+		JLabel lblnNgy = new JLabel("Đến ngày:");
+		lblnNgy.setHorizontalAlignment(SwingConstants.LEFT);
+		lblnNgy.setForeground(Color.BLACK);
+		lblnNgy.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+		lblnNgy.setBackground(Color.WHITE);
+		lblnNgy.setBounds(394, 60, 88, 20);
+		contentPane.add(lblnNgy);
 	}
 	
 	static class Item {
@@ -297,7 +362,7 @@ public class LogViewer extends JPanel {
             public List<Report> getRows(int startIndex, int endIndex) {
                 //return list.subList(startIndex, endIndex);
             	try {
-            		return DttConsumer.getReport(maDotDieuTri, nam, thang, endIndex - startIndex, startIndex);
+            		return DttConsumer.getReport(maDotDieuTri, nam, thang,tuNgay, denNgay, endIndex - startIndex, startIndex);
 				} catch (Exception e) {
 					return null;
 				}

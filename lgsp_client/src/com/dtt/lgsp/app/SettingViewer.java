@@ -89,22 +89,8 @@ public class SettingViewer extends JPanel {
 		
 		panel1 = creatPanel1(profileEntity);
 		
-		panel2 = creatPanel2(profileEntity);		
+		panel2 = creatPanel2(profileEntity);	
 		
-		txtLog2.setForeground(new Color(50, 205, 50));
-		txtLog2.setEditable(false);
-		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-		txtLog2.setBackground(Color.BLACK);
-		txtLog2.setLineWrap(true);
-		txtLog2.setWrapStyleWord(true);
-		
-		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane_1.setBounds(10, 140, 745, 314);
-		scrollPane_1.add(txtLog2);
-		scrollPane_1.setViewportView(txtLog2);
-		
-		panel2.add(scrollPane_1);
-	
 		
 		ImageIcon folderIcon = new ImageIcon(SettingViewer.class.getResource("/images/folder-icon.png"));
 		ImageIcon importIcon = new ImageIcon(SettingViewer.class.getResource("/images/import-21-723160.png"));
@@ -113,8 +99,8 @@ public class SettingViewer extends JPanel {
 		tabbedPane.setToolTipText("");
 		tabbedPane.setBounds(0, 0, 770, 570);
 		
-		tabbedPane.addTab("Cấu hình thư mục", folderIcon, panel1,"Cấu hình thư mục");
-		tabbedPane.addTab("Import file XML", importIcon, panel2,"XML");
+		tabbedPane.addTab("Cấu hình thư mục đồng bộ", folderIcon, panel1,"Cấu hình thư mục đồng bộ");
+		tabbedPane.addTab("Import file", importIcon, panel2,"XML");
 		
 		
 		add(parentPanel);
@@ -164,19 +150,23 @@ public class SettingViewer extends JPanel {
 		panel2.add(btnFile);
 		
 		JButton btnDongBoFile = new JButton("Đồng bộ");
-		btnDongBoFile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					ImportFileProcess thread = new ImportFileProcess(profileEntity, chooserFile.getSelectedFile().toString());
-					thread.run();
-					chooserFile.removeAll();
-					lblPath_1.setText("");
-				} catch (Exception e) {
-				}
-			}
-		});
+		btnDongBoFile.addActionListener(new RunFileActionListener());
 		btnDongBoFile.setBounds(173, 92, 130, 23);
 		panel2.add(btnDongBoFile);
+		
+		txtLog2.setForeground(new Color(50, 205, 50));
+		txtLog2.setEditable(false);
+		txtLog2.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+		txtLog2.setBackground(Color.BLACK);
+		txtLog2.setLineWrap(true);
+		txtLog2.setWrapStyleWord(true);
+		
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_1.setBounds(10, 140, 745, 314);
+		scrollPane_1.add(txtLog2);
+		scrollPane_1.setViewportView(txtLog2);
+		
+		panel2.add(scrollPane_1);
 		
 		return panel2;
 	}
@@ -267,7 +257,7 @@ public class SettingViewer extends JPanel {
 			});
 			btnNewButton.setForeground(new Color(0, 0, 255));
 			btnNewButton.setIcon(new ImageIcon(SettingViewer.class.getResource("/images/worldwide.png")));
-			btnNewButton.setBounds(324, 105, 160, 30);
+			btnNewButton.setBounds(390, 103, 160, 30);
 			panel1.add(btnNewButton);
 
 			JLabel lblThiGianChy = new JLabel("Th\u1EDDi gian ch\u1EA1y (gi\u00E2y)");
@@ -278,7 +268,7 @@ public class SettingViewer extends JPanel {
 			panel1.add(lblThiGianChy);
 
 			txtSecondRun = new JTextField();
-			txtSecondRun.setBounds(228, 110, 90, 20);
+			txtSecondRun.setBounds(228, 110, 157, 23);
 			txtSecondRun.setText(profileEntity.getSecondRun() + "");
 			panel1.add(txtSecondRun);
 			txtSecondRun.setColumns(10);
@@ -341,7 +331,7 @@ public class SettingViewer extends JPanel {
 				}
 			});
 
-			btnUpdate.setBounds(228, 146, 150, 23);
+			btnUpdate.setBounds(228, 146, 157, 23);
 			panel1.add(btnUpdate);
 
 			JSeparator separator_1 = new JSeparator();
@@ -356,7 +346,7 @@ public class SettingViewer extends JPanel {
 					"=========== CÁC BƯỚC THỰC HIỆN ===========\r\nBước 1: Cấu hình \"Thư mục nguồn\",\"thời gian chạy\", và \"Kiểm tra dịch vụ \" để đảm bảo cấu hình đã đúng theo hướng dẫn\r\nBước 2: Copy hồ sơ 4210 định dạng .xml vào thư mục đã được cấu hình \"Thư mục nguồn\" không hạn chế số lượng file\r\nBước 3: Click vào nút \"Lưu và gửi hồ sơ\" để xác nhận việc gửi \r\nChú ý:\r\n- Hệ thống sẽ tự động loại bỏ thông tin bệnh nhân trước khi gửi hồ sơ lên.\r\n- Bạn chỉ cần bấm 1 lần hệ thống sẽ tự động chuyển hồ sơ tại thư mục cấu hình\r\nBước 4: Theo dõi kết quả gửi lên ( xem chi tiết tại mục \"Kết quả gửi hồ sơ\")\r\n\r\n=========== CHÚ Ý ===========\r\n1. Dữ liệu ưu tiên theo thời gian như sau: Dữ liệu 2019, 2020 cuối cùng là 2018.\r\n2. Giới hạn độ lớn của 1 file: 1GB, vượt quá không thực hiện được\r\n3. Số lượng file XML không giới hạn. Các cơ sở y tế copy toàn bộ các file XML của mình vào thư mục gốc. Công cụ sẽ tự động chuyển dần dữ liệu lên máy chủ dữ liệu của Bộ Y tế\r\n4. Do giới hạn đường truyền, chỉ cho phép 1 cơ sở chuyển tối đa 1 hồ sơ/1 giây hoặc 2 giây. Vì thế cơ sở y tế cần bật máy tính liên tục cho đến khi chuyển hết dữ liệu lên. Thời gian có thể mất một hoặc nhiều ngày tùy thuộc vào số lượng XML của cơ sở. Sau khi chuyển xong dữ liệu (mọi file XML đã được chuyển lên máy chủ trung ương hoặc chuyển vào thư mục lỗi do bị lỗi) thì phần mềm sẽ báo đã chuyển hết dữ liệu. Lúc đó mới được tắt máy\r\n5. Trong khi phần mềm chạy, có thể máy bị treo hoặc phần mềm bị treo (nếu phần mềm bị treo thì không thấy tỷ lệ xử lý thay đổi trong thời gian dài), người phụ trách việc chuyển dữ liệu khởi động lại máy (nếu treo máy) hoặc khởi động lại phần mềm – bấm nút thoát và chạy lại chương trình.\r\n6. Do giới hạn năng lực xử lý nên kết quả báo cáo sẽ được thực hiện vào ban đêm. Vì thế cơ sở không thể xem ngay được số lượng đã được đồng bộ với máy chủ - nhưng xem được số lượng file đã được gửi lên ngay ở máy cài đặt chương trình chuyển dữ liệu.\r\n7. Nếu phần mềm đã báo đã đồng bộ xong, vào kiểm tra thư mục gốc mà không còn file nào nữa, tiếp đến kiểm tra thư mục lỗi mà cũng không có file nào thì có nghĩa là dữ liệu đã được chuyển toàn vẹn lên máy chủ. Nếu có file trong thư mục lỗi, đề nghị copy lại thư mục gốc và cho phần mềm tiếp tục chạy. Nếu sau khi làm lần 2 như trên mà vẫn còn file trong thư mục lỗi, đề nghị lên zalo nhóm này để được hỗ trợ.");
 
 			scrollPane = new JScrollPane(txtpnThongBao);
-			scrollPane.setBounds(10, 180, 745, 336);
+			scrollPane.setBounds(10, 180, 745, 320);
 			scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 			scrollPane.add(txtpnThongBao);
 			scrollPane.setViewportView(txtpnThongBao);
@@ -374,7 +364,7 @@ public class SettingViewer extends JPanel {
 			cbBoxLoaiDuLieu.addItem(new Item(Integer.valueOf(LoaiHoSoEnum.QD4210.getValue()), LoaiHoSoEnum.QD4210.getKey()));
 			cbBoxLoaiDuLieu.addItem(new Item(Integer.valueOf(LoaiHoSoEnum.QD3360.getValue()), LoaiHoSoEnum.QD3360.getKey()));
 			cbBoxLoaiDuLieu.setSelectedIndex(profileEntity.getLoaiHoSo());
-			cbBoxLoaiDuLieu.setBounds(255, 61, 130, 20);
+			cbBoxLoaiDuLieu.setBounds(230, 61, 155, 20);
 			
 			cbBoxLoaiDuLieu.addActionListener (new ActionListener () {
 			    public void actionPerformed(ActionEvent e) {
@@ -395,4 +385,14 @@ public class SettingViewer extends JPanel {
 			
         return panel1;
     }
+	 
+	 class RunFileActionListener implements ActionListener {
+	        public void actionPerformed(ActionEvent e) {
+	        	ProfileEntity profileEntity = PreferencesConfiguration.getConfig();
+	        	ImportFileProcess thread = new ImportFileProcess(profileEntity, chooserFile.getSelectedFile().toString());
+				thread.run();
+				lblPath_1.setText("");
+				DttCron.chayScheduleMoi = false;
+	        }
+	    }
 }

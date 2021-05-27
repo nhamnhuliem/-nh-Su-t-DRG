@@ -1,6 +1,9 @@
 package drg.dtt.vn.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -42,7 +45,13 @@ public class DataTask {
 			if(thongKe != null) {
 				log.info("insert to Report");
 				try {
-					Report rp = new Report(maCoSo, thongKe.getMaLk(), 0, thongKe.getNam(), thongKe.getThang(), 1, thongKe.getTongChi(), thongKe.getTongBHTT());
+					Date date = new Date();
+				  Calendar calendar = new GregorianCalendar();
+				  calendar.setTime(date);
+				  int year = calendar.get(Calendar.YEAR);
+				  int month = calendar.get(Calendar.MONTH) + 1;
+				  Report rp = new Report(maCoSo, thongKe.getMaLk(), 0, year, month, 
+							1, thongKe.getTongChi(), thongKe.getTongBHTT(),date,thongKe.getNam(), thongKe.getThang());
 					reportService.save(rp);
 				} catch (Exception e) {
 					log.info(e.getMessage());

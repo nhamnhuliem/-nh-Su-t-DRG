@@ -1,8 +1,12 @@
 package com.dtt.lgsp.data.handler;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
@@ -26,6 +30,33 @@ public class XMLDataHandler extends ThreadProcess{
 	}
 
 	static final Logger logger = Logger.getLogger(XMLDataHandler.class);
+	
+	public void xmlDataHandler(String filePath) throws IOException {
+		File fileRoot = null;
+		DefaultHandlerSAX defaultHandlerSAX = null;
+		int thanhCong = DttCron.thanhCong;
+		FileInputStream fis = null;
+		try {
+			fileRoot = new File(filePath);
+			SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+			SAXParser saxParser = saxParserFactory.newSAXParser();
+			
+			defaultHandlerSAX = new DefaultHandlerSAX(fileRoot);
+			fis = new FileInputStream(fileRoot);
+			saxParser.parse(fis, defaultHandlerSAX);
+			
+			if (thanhCong == DttCron.thanhCong) {
+				FileHandler.errorFile(fis, fileRoot);
+			}
+			
+			FileHandler.successFile(fis, fileRoot, defaultHandlerSAX !=null?String.valueOf(this.tongHoSoFile):"0");
+		} catch (Exception e) {
+			if(fis != null) {
+				fis.close();
+			}
+			FileHandler.errorFile(fis, fileRoot);
+		}
+	}
 	
 	public boolean dongBoHoSo(String hoSo, int loaiHoSo, int soLuong) {
 		try {
