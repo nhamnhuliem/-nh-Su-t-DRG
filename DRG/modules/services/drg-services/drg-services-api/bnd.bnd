@@ -1,0 +1,10 @@
+Bundle-Name: drg-services-api
+Bundle-SymbolicName: drg.moh.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	drg.moh.service.exception,\
+	drg.moh.service.model,\
+	drg.moh.service.service,\
+	drg.moh.service.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../drg-services-service/service.xml

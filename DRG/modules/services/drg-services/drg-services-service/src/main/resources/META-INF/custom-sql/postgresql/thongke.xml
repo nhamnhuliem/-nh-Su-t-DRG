@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<custom-sql>
+	<sql id="lgsp.services.service.persistence.impl.ThongKeFinderImpl.countHoSoByNam">
+	
+		<![CDATA[
+			SELECT sub.thang_qt, sum(sub.tong_hoso) AS qty
+			FROM hsbhyt_tonghop_thongke sub
+			WHERE sub.nam_qt = ?
+			GROUP BY  sub.thang_qt;
+		]]>
+	</sql>	
+</custom-sql>

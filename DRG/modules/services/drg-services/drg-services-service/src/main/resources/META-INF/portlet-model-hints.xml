@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="drg.moh.service.model.ThongKe">
+		<field name="id" type="long" />
+		<field name="maCoSo" type="String" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="tongHoSo" type="long" />
+		<field name="tienTongChi" type="double" />
+		<field name="tienBH" type="double" />
+	</model>
+	<model name="drg.moh.service.model.ThongKeBaoCao">
+		<field name="id" type="long" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="tongHoSo" type="long" />
+	</model>
+</model-hints>

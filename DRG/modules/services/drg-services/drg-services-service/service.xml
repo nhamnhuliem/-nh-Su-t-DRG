@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="spring" package-path="drg.moh.service">
+	<author>SON</author>
+	<namespace>DRG</namespace>
+	<entity local-service="true" name="ThongKe" table="hsbhyt_tonghop_thongke" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="maCoSo" db-name="ma_cskcb" type="String"  />
+		<column name="nam" db-name="nam_qt" type="int"  />
+		<column name="thang" db-name="thang_qt" type="int"  />
+		<column name="tongHoSo" db-name="tong_hoso" type="long"  />
+		<column name="tienTongChi" db-name="t_tongchi" type="double"  />
+		<column name="tienBH" db-name="t_bhtt" type="double"  />
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+	</entity>
+	<entity local-service="true" name="ThongKeBaoCao" table="dashboard_thongke_1" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="thang" db-name="thang" type="int"  />
+		<column name="tongHoSo" db-name="tong_hoso" type="long"  />
+		<order by="asc">
+			<order-column name="id" />
+		</order>
+		<finder return-type="Collection" name="Nam">
+			<finder-column name="nam"/>
+		</finder>
+	</entity>
+</service-builder>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="drg.moh.service.service.impl.ThongKeLocalServiceImpl" id="drg.moh.service.service.ThongKeLocalService" />
+	<bean class="drg.moh.service.service.impl.ThongKeServiceImpl" id="drg.moh.service.service.ThongKeService" />
+	<bean class="drg.moh.service.service.persistence.impl.ThongKePersistenceImpl" id="drg.moh.service.service.persistence.ThongKePersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.ThongKeBaoCaoLocalServiceImpl" id="drg.moh.service.service.ThongKeBaoCaoLocalService" />
+	<bean class="drg.moh.service.service.impl.ThongKeBaoCaoServiceImpl" id="drg.moh.service.service.ThongKeBaoCaoService" />
+	<bean class="drg.moh.service.service.persistence.impl.ThongKeBaoCaoPersistenceImpl" id="drg.moh.service.service.persistence.ThongKeBaoCaoPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+</beans>

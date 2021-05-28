@@ -1,0 +1,5 @@
+Bundle-Name: drg-fontend-portlet
+Bundle-SymbolicName: drg.fontend.portlet
+Bundle-Version: 1.0.0
+Export-Package: drg.fontend.portlet.constants
+-metatype: *
