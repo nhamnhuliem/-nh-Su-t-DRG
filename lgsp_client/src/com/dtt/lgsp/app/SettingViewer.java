@@ -31,6 +31,7 @@ import com.dtt.lgsp.app.business.DttConsumer;
 import com.dtt.lgsp.app.config.PreferencesConfiguration;
 import com.dtt.lgsp.app.core.LoaiHoSoEnum;
 import com.dtt.lgsp.app.cron.DttCron;
+import com.dtt.lgsp.app.cron.ImportCron;
 import com.dtt.lgsp.app.cron.ImportFileProcess;
 import com.dtt.lgsp.app.cron.KetQuaCron;
 import com.dtt.lgsp.data.handler.ReadExcelData;
@@ -143,6 +144,8 @@ public class SettingViewer extends JPanel {
 				if (chooserFile.showOpenDialog(panel2) == JFileChooser.APPROVE_OPTION) {
 					logger.info("file đã chọn: " + chooserFile.getSelectedFile());
 					lblPath_1.setText(chooserFile.getSelectedFile().toString());
+					profileEntity.setUrlWs(chooserFile.getSelectedFile().toString());
+					PreferencesConfiguration.buildConfig(profileEntity);
 				}
 			}
 		});
@@ -388,9 +391,9 @@ public class SettingViewer extends JPanel {
 	 
 	 class RunFileActionListener implements ActionListener {
 	        public void actionPerformed(ActionEvent e) {
-	        	ProfileEntity profileEntity = PreferencesConfiguration.getConfig();
-	        	ImportFileProcess thread = new ImportFileProcess(profileEntity, chooserFile.getSelectedFile().toString());
-				thread.run();
+	        	ImportCron cron = new ImportCron();
+	        	SystemTrayLgsp.timerPut.scheduleAtFixedRate(cron, 0,
+						Integer.valueOf(365 * 24 * 60 * 60 * 1000));
 				lblPath_1.setText("");
 				DttCron.chayScheduleMoi = false;
 	        }

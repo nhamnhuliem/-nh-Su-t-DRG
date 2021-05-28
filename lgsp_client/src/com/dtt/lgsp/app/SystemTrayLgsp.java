@@ -34,6 +34,7 @@ import org.apache.log4j.Logger;
 import com.dtt.lgsp.app.config.PreferencesConfiguration;
 import com.dtt.lgsp.app.core.Validations;
 import com.dtt.lgsp.app.cron.DttCron;
+import com.dtt.lgsp.app.cron.ImportCron;
 import com.dtt.lgsp.app.cron.KetQuaCron;
 import com.dtt.lgsp.entities.ProfileEntity;
 
@@ -223,6 +224,7 @@ public final class SystemTrayLgsp {
 			DttCron dttCron = new DttCron();
 			KetQuaCron ketQuaCron = new KetQuaCron();
 			CountDown countDown = new CountDown();
+			ImportCron importCron = new ImportCron();
 			timerPut = new Timer();
 			timerGet = new Timer();
 			timerCountDown = new Timer();

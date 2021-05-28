@@ -47,7 +47,8 @@ public class DttConsumer {
 	public static final String success = "00";
 	static final Logger logger = Logger.getLogger(DttConsumer.class);
 	//private static String url_service = "http://171.244.134.5:8080/drg-report/api/4210";
-	private static String url_service = "http://localhost:8081/api/4210";
+	private static String url_service = "http://hanoi.dtt.vn:19090/drg-report/api/4210";
+	//private static String url_service = "http://localhost:8081/api/4210";
 	//private static String url_service = "http://hanoi.dtt.vn:8218/drg-report/api/4210";
 	
 	public static Result callReceiver(HoSo hoSo, int loaiHsId) {

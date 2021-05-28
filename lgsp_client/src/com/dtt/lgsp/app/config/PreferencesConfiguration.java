@@ -29,10 +29,10 @@ public class PreferencesConfiguration {
 			userPrefs.putDouble("lgsp.timesleep", entity.getTimeSlepp());
 			userPrefs.put("lgsp.primaryactivecode", StringUtils.isNotEmpty(entity.getPrimaryActivecode()) ? entity.getPrimaryActivecode() : "");
 			userPrefs.put("lgsp.version", StringUtils.isNotEmpty(entity.getVersion()) ? entity.getVersion() : "");
-			userPrefs.put("lgsp.clientversion", StringUtils.isNotEmpty(entity.getClientVersion()) ? entity.getClientVersion() : "");
 			userPrefs.putInt("lgsp.loaihoso", entity.getLoaiHoSo());
 
 		}
+		userPrefs.put("lgsp.clientversion", "3.3.0");
 
 		return userPrefs;
 	}
@@ -44,7 +44,7 @@ public class PreferencesConfiguration {
 				userPrefs.get("lgsp.macoso", ""), userPrefs.get("lgsp.activecode", ""), 
 				userPrefs.getBoolean("lgsp.isactive", false), 
 				userPrefs.getDouble("lgsp.timesleep", 0), userPrefs.get("lgsp.primaryactivecode", ""), 
-				userPrefs.get("lgsp.version", "3.0.1"), userPrefs.get("lgsp.clientversion", "3.2.0"),
+				userPrefs.get("lgsp.version", ""), userPrefs.get("lgsp.clientversion", "3.3.0"),
 				userPrefs.getInt("lgsp.loaihoso", 1)
 				);
 		return entity;
