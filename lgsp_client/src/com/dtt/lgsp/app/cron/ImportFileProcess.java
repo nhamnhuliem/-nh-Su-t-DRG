@@ -46,7 +46,7 @@ public class ImportFileProcess extends Thread {
 				logger.info("Công cụ bắt đầu đọc file để xử lý : " + profileEntity.getUrlWs() + ", vui lòng đợi ....");
 				fileRoot = new File(profileEntity.getUrlWs());
 				try {
-					if(profileEntity.getUrlWs().contains(".XLM") || profileEntity.getUrlWs().contains(".xml")) {
+					if(profileEntity.getUrlWs().contains(".XML") || profileEntity.getUrlWs().contains(".xml")) {
 						XMLDataHandler xmlHandler = new XMLDataHandler(profileEntity);
 						xmlHandler.xmlDataHandler(profileEntity.getUrlWs());
 					}else if(profileEntity.getUrlWs().contains(".xlsx") || profileEntity.getUrlWs().contains(".xls")) {
