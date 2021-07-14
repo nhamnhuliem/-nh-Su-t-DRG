@@ -1,6 +1,136 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="drg.moh.service.model.DashboardBaoHiem">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="drgMa" type="String" />
+		<field name="drgTen" type="String" />
+		<field name="drgValue" type="double" />
+		<field name="drgUp" type="double" />
+		<field name="drgDown" type="double" />
+	</model>
+	<model name="drg.moh.service.model.DashboardChiPhiBinhQuan">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="phiBqDichVu" type="double" />
+		<field name="phiBqBenhVien" type="double" />
+	</model>
+	<model name="drg.moh.service.model.DashboardChiPhiHoatDong">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="thanhPhanId" type="String" />
+		<field name="thanhPhanMa" type="String" />
+		<field name="thanhPhanTen" type="String" />
+		<field name="drgPhiDv" type="double" />
+		<field name="drgDinhSuat" type="double" />
+		<field name="drgValues" type="double" />
+	</model>
+	<model name="drg.moh.service.model.DashboardChiPhiThanhPhan">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="phi" type="double" />
+		<field name="dinhSuat" type="double" />
+		<field name="drg" type="double" />
+	</model>
+	<model name="drg.moh.service.model.DashboardCMI">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="cmiThap" type="double" />
+		<field name="cmiCao" type="double" />
+		<field name="cmiTrungBinh" type="double" />
+	</model>
+	<model name="drg.moh.service.model.DashboardDinhSuat">
+		<field name="id" type="long" />
+		<field name="mucBc" type="int" />
+		<field name="nam" type="int" />
+		<field name="thang" type="int" />
+		<field name="orgId" type="long" />
+		<field name="orgName" type="String" />
+		<field name="dinhSuatTieuChuan" type="double" />
+		<field name="dinhSuatThucTe" type="double" />
+		<field name="dinhSuatBenhNhan" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardChiPhiBinhQuan">
+		<field name="id" type="long" />
+		<field name="chiPhi" type="double" />
+		<field name="binhQuan" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardCmi">
+		<field name="id" type="long" />
+		<field name="cmiToanQuoc" type="double" />
+		<field name="cmiTinh" type="double" />
+		<field name="cmiTuyen" type="String" />
+		<field name="cmiTrungBinh" type="double" />
+		<field name="cmiTrungMax" type="double" />
+		<field name="cmiTrungMin" type="double" />
+		<field name="cmiCoSo" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardCmi2">
+		<field name="id" type="long" />
+		<field name="cmiTenTuyen" type="String" />
+		<field name="cmiTrungBinh" type="double" />
+		<field name="cmiTrungMax" type="double" />
+		<field name="cmiTrungMin" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardCmi3">
+		<field name="id" type="long" />
+		<field name="cmiTinh" type="double" />
+		<field name="cmiTuyen" type="double" />
+		<field name="cmiCoSo" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardCphd">
+		<field name="id" type="long" />
+		<field name="tenTinh" type="String" />
+		<field name="chiPhi" type="double" />
+		<field name="dinhSuat" type="double" />
+		<field name="drg" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardDinhSuatChiTiet">
+		<field name="id" type="long" />
+		<field name="tenTinh" type="String" />
+		<field name="dinhSuat" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardDRG">
+		<field name="id" type="long" />
+		<field name="drg" type="String" />
+		<field name="thang" type="String" />
+		<field name="value" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardDstc">
+		<field name="id" type="String" />
+		<field name="tenTinh" type="String" />
+		<field name="thang" type="int" />
+		<field name="soLuot" type="int" />
+		<field name="chiPhi" type="double" />
+		<field name="quyDs" type="double" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardDstcChiTiet">
+		<field name="id" type="String" />
+		<field name="tenTinh" type="String" />
+		<field name="dinhSuat" type="int" />
+	</model>
+	<model name="drg.moh.service.model.RpDashboardTrungBinh">
+		<field name="data" type="String" />
+	</model>
 	<model name="drg.moh.service.model.ThongKe">
 		<field name="id" type="long" />
 		<field name="maCoSo" type="String" />
@@ -15,5 +145,19 @@
 		<field name="nam" type="int" />
 		<field name="thang" type="int" />
 		<field name="tongHoSo" type="long" />
+	</model>
+	<model name="drg.moh.service.model.ViewDanhSachBenhAn">
+		<field name="id" type="long" />
+		<field name="orgId" type="long" />
+		<field name="maCoSo" type="String" />
+		<field name="tenCoSo" type="String" />
+		<field name="maHoSo" type="String" />
+		<field name="maBenhNhan" type="String" />
+		<field name="hoTen" type="String" />
+		<field name="maThe" type="String" />
+		<field name="nam" type="int" />
+		<field name="chiPhi" type="double" />
+		<field name="dinhSuat" type="double" />
+		<field name="giaTri" type="double" />
 	</model>
 </model-hints>

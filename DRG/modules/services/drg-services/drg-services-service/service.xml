@@ -28,5 +28,217 @@
 			<finder-column name="nam"/>
 		</finder>
 	</entity>
+	
+	
+	<entity name="DashboardBaoHiem" table="rp_dashboard_baohiem" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="thang" db-name="thang" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="drgMa" db-name="drg_ma" type="String"  />
+		<column name="drgTen" db-name="drg_ten" type="String"  />
+		<column name="drgValue" db-name="drg_value" type="double"  />
+		<column name="drgUp" db-name="drg_up" type="double"  />
+		<column name="drgDown" db-name="drg_down" type="double"  />
+		
+		<order by="asc">
+			<order-column name="thang" />
+		</order>
+		<finder return-type="Collection" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="DashboardChiPhiHoatDong" table="rp_dashboard_chiphi_hoatdong" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="thanhPhanId" db-name="thanhphan_id" type="String"  />
+		<column name="thanhPhanMa" db-name="thanhphan_ma" type="String"  />
+		<column name="thanhPhanTen" db-name="thanhphan_ten" type="String"  />
+		<column name="drgPhiDv" db-name="drg_phidv" type="double"  />
+		<column name="drgDinhSuat" db-name="drg_dinhsuat" type="double"  />
+		<column name="drgValues" db-name="drg_values" type="double"  />
+		
+		
+		<finder return-type="Collection" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+		
+	</entity>
+	
+	<entity name="DashboardChiPhiBinhQuan" table="rp_dashboard_chiphi_binhquan" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="thang" db-name="thang" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="phiBqDichVu" db-name="phibq_dichvu" type="double"  />
+		<column name="phiBqBenhVien" db-name="phibq_benhvien" type="double"  />
+		
+		<finder return-type="DashboardChiPhiBinhQuan" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="DashboardChiPhiThanhPhan" table="rp_dashboard_chiphi_thanhphan" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="phi" db-name="phi" type="double"  />
+		<column name="dinhSuat" db-name="dinhsuat" type="double"  />
+		<column name="drg" db-name="drg" type="double"  />
+		
+		<finder return-type="DashboardChiPhiThanhPhan" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="DashboardDinhSuat" table="rp_dashboard_dinhsuat" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="thang" db-name="thang" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="dinhSuatTieuChuan" db-name="dinhsuat_tieuchuan" type="double"  />
+		<column name="dinhSuatThucTe" db-name="dinhsuat_thucte" type="double"  />
+		<column name="dinhSuatBenhNhan" db-name="dinhsuat_benhnhan" type="double"  />
+		
+		<order by="asc">
+			<order-column name="thang" />
+		</order>
+		<finder return-type="Collection" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+		
+	</entity>
+	
+	
+	<entity name="DashboardCMI" table="rp_dashboard_cmi" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="mucBc" db-name="muc_bc" type="int"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="thang" db-name="thang" type="int"  />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="orgName" db-name="organization_name" type="String"  />
+		<column name="cmiThap" db-name="cmi_thap" type="double"  />
+		<column name="cmiCao" db-name="cmi_cao" type="double"  />
+		<column name="cmiTrungBinh" db-name="cmi_trungbinh" type="double"  />
+		
+		<finder return-type="Collection" name="ORG_MUC_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="mucBc"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+	</entity>
+	<entity name="ViewDanhSachBenhAn" table="view_danhsach_hsba" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="id" type="long" primary="true" />
+		<column name="orgId" db-name="organization_id" type="long"  />
+		<column name="maCoSo" db-name="ma_cskcb" type="String"  />
+		<column name="tenCoSo" db-name="ten_cskcb" type="String"  />
+		<column name="maHoSo" db-name="ma_lk" type="String"  />
+		<column name="maBenhNhan" db-name="ma_bn" type="String"  />
+		<column name="hoTen" db-name="ho_ten" type="String"  />
+		<column name="maThe" db-name="ma_the" type="String"  />
+		<column name="nam" db-name="nam" type="int"  />
+		<column name="chiPhi" db-name="drg_chiphi" type="double"  />
+		<column name="dinhSuat" db-name="drg_dinhsuat" type="double"  />
+		<column name="giaTri" db-name="drg_giatri" type="double"  />
+		
+		
+		<finder return-type="Collection" name="ORG_NAM">
+			<finder-column name="orgId"></finder-column>
+			<finder-column name="nam"></finder-column>
+		</finder>
+		
+	</entity>
+	
+	<entity name="RpDashboardCphd" table="rp_dashboard_cphd" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="tenTinh" db-name="_ten_tinh" type="String"  />
+		<column name="chiPhi" db-name="_chiphi" type="double"  />
+		<column name="dinhSuat" db-name="_dinhsuat" type="double"  />
+		<column name="drg" db-name="_drg" type="double"  />
+	</entity>
+	
+	<entity name="RpDashboardDstc" table="rp_dashboard_dstc" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="String" primary="true" />
+		<column name="tenTinh" db-name="_ten_tinh" type="String"  />
+		<column name="thang" db-name="_thang" type="int"  />
+		<column name="soLuot" db-name="_soluot" type="int"  />
+		<column name="chiPhi" db-name="_chiphi" type="double"  />
+		<column name="quyDs" db-name="_quyds" type="double"  />
+	</entity>
+	
+	<entity name="RpDashboardCmi" table="rp_dashboard_cmi" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="cmiToanQuoc" db-name="_cmi_toanquoc" type="double"  />
+		<column name="cmiTinh" db-name="_cmi_tinh" type="double"  />
+		<column name="cmiTuyen" db-name="_cmi_tuyen" type="String"  />
+		<column name="cmiTrungBinh" db-name="_cmi_trungbinh" type="double"  />
+		<column name="cmiTrungMax" db-name="_cmi_trungmax" type="double"  />
+		<column name="cmiTrungMin" db-name="_cmi_trungmin" type="double"  />
+		<column name="cmiCoSo" db-name="_cmi_coso" type="double"  />
+	</entity>
+		
+	<entity name="RpDashboardCmi2" table="func_dashboard_cmi_2" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="cmiTenTuyen" db-name="_cmi_tentuyen" type="String"  />
+		<column name="cmiTrungBinh" db-name="_cmi_trungbinh" type="double"  />
+		<column name="cmiTrungMax" db-name="_cmi_max" type="double"  />
+		<column name="cmiTrungMin" db-name="_cmi_min" type="double"  />
+	</entity>
+	<entity name="RpDashboardCmi3" table="func_dashboard_cmi_3" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="cmiTinh" db-name="_cmi_tinh" type="double"  />
+		<column name="cmiTuyen" db-name="_cmi_tuyen" type="double"  />
+		<column name="cmiCoSo" db-name="_cmi_coso" type="double"  />
+	</entity>
+	
+	<entity name="RpDashboardDstcChiTiet" table="rp_dashboard_dstc_chitiet" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="String" primary="true" />
+		<column name="tenTinh" db-name="_ten_tinh" type="String"  />
+		<column name="dinhSuat" db-name="_dinhsuat" type="int"  />
+	</entity>
+	
+	<entity name="RpDashboardDRG" table="rp_dashboard_drg" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="drg" db-name="_drg" type="String"  />
+		<column name="thang" db-name="_thang" type="String"  />
+		<column name="value" db-name="_value" type="double"  />
+	</entity>
+	
+	<entity name="RpDashboardDinhSuatChiTiet" table="rp_dashboard_dinhsuat_ct" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="tenTinh" db-name="_tentinh" type="String"  />
+		<column name="dinhSuat" db-name="_dinhsuat" type="double"  />
+	</entity>
+	
+	<entity name="RpDashboardChiPhiBinhQuan" table="rp_dashboard_chiphibinhquan" local-service="true" remote-service="true" data-source="drgDataSource">
+		<column name="id" db-name="_id" type="long" primary="true" />
+		<column name="chiPhi" db-name="_chiphi" type="double"  />
+		<column name="binhQuan" db-name="_binhquan" type="double"  />
+	</entity>
+    <entity name="RpDashboardTrungBinh" remote-service="true" local-service="true">
+    	<column name="data" type="String" primary="true" />
+    </entity>
 </service-builder>
 

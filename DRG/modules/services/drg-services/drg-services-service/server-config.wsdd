@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="axis.sendMinimizedElements" value="true" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder" />
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" />
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+	<service name="Plugin_DRG_DashboardBaoHiemService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardBaoHiemServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardBaoHiemServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardBaoHiemServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardBaoHiemService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_DashboardCMIService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardCMIServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardCMIServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardCMIServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardCMIService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_DashboardChiPhiBinhQuanService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardChiPhiBinhQuanServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardChiPhiBinhQuanServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardChiPhiBinhQuanServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardChiPhiBinhQuanService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_DashboardChiPhiHoatDongService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardChiPhiHoatDongServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardChiPhiHoatDongServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardChiPhiHoatDongServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardChiPhiHoatDongService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_DashboardChiPhiThanhPhanService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardChiPhiThanhPhanServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardChiPhiThanhPhanServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardChiPhiThanhPhanServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardChiPhiThanhPhanService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_DashboardDinhSuatService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.DashboardDinhSuatServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="DashboardDinhSuatServiceSoap" />
+		<parameter name="wsdlServiceElement" value="DashboardDinhSuatServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_DashboardDinhSuatService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardChiPhiBinhQuanService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardChiPhiBinhQuanServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardChiPhiBinhQuanServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardChiPhiBinhQuanServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardChiPhiBinhQuanService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardCmi2Service" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardCmi2ServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardCmi2ServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardCmi2ServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardCmi2Service" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardCmi3Service" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardCmi3ServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardCmi3ServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardCmi3ServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardCmi3Service" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardCmiService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardCmiServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardCmiServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardCmiServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardCmiService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardCphdService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardCphdServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardCphdServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardCphdServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardCphdService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardDRGService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardDRGServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardDRGServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardDRGServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardDRGService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardDinhSuatChiTietService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardDinhSuatChiTietServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardDinhSuatChiTietServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardDinhSuatChiTietServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardDinhSuatChiTietService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardDstcChiTietService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardDstcChiTietServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardDstcChiTietServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardDstcChiTietServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardDstcChiTietService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardDstcService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardDstcServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardDstcServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardDstcServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardDstcService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_RpDashboardTrungBinhService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardTrungBinhServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardTrungBinhServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardTrungBinhServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardTrungBinhService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_ThongKeBaoCaoService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.ThongKeBaoCaoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ThongKeBaoCaoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ThongKeBaoCaoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_ThongKeBaoCaoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_ThongKeService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.ThongKeServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ThongKeServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ThongKeServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_ThongKeService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+	<service name="Plugin_DRG_ViewDanhSachBenhAnService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.ViewDanhSachBenhAnServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ViewDanhSachBenhAnServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ViewDanhSachBenhAnServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_ViewDanhSachBenhAnService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+</deployment>

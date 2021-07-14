@@ -8,7 +8,6 @@
 		</button>
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 	    <ul class="navbar-nav mr-auto">
-	    	<li class="nav-item active"> <a class="nav-link" href="/trang-chu"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a> </li>
 	    	<#list nav_items as nav_item>
 				<#assign
 					nav_item_attr_has_popup = ""
@@ -23,7 +22,7 @@
 					/>
 				</#if>
 				<li class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
-					<a aria-labelledby="layout_${nav_item.getLayoutId()}" ${nav_item_attr_has_popup} id ="menu_${nav_item.getLayoutId()}" href="${nav_item.getURL()}" ${nav_item.getTarget()} class="nav-link" role="menuitem"><@liferay_theme["layout-icon"] layout=nav_item_layout /> ${nav_item.getName()}</a>
+					<a aria-labelledby="layout_${nav_item.getLayoutId()}" ${nav_item_attr_has_popup} href="${nav_item.getURL()}" ${nav_item.getTarget()} class="nav-link" role="menuitem"><@liferay_theme["layout-icon"] layout=nav_item_layout /><i id ="menu_${nav_item.getLayoutId()}"></i> ${nav_item.getName()}</a>
 				</li>
 			</#list>
 	    </ul>

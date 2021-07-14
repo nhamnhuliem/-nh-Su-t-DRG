@@ -16,7 +16,7 @@ dependencies {
 	compileOnly group: 'com.liferay', name: 'com.liferay.portal.spring.extender.api', version: '5.0.3'
 	
 	// https://mvnrepository.com/artifact/com.liferay/com.liferay.portal.dao.orm.custom.sql.api
-	compile group: 'com.liferay', name: 'com.liferay.portal.dao.orm.custom.sql.api', version: '3.0.5'
+	//compile group: 'com.liferay', name: 'com.liferay.portal.dao.orm.custom.sql.api', version: '1.0.0'
 	
 	compileOnly group: "org.osgi", name: "org.osgi.annotation.versioning"
 	compileOnly group: "org.osgi", name: "org.osgi.core"
@@ -29,6 +29,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
 	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	
+	compile group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+    compile group: "com.liferay", name: "com.liferay.osgi.util", version: "3.0.0"
+	compileOnly 'com.liferay:com.liferay.portal.dao.orm.custom.sql:1.0.27'
 }
 
 buildService {

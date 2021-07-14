@@ -2,8 +2,187 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="drg.moh.service.model.DashboardBaoHiem" />
+	<import class="drg.moh.service.model.DashboardChiPhiBinhQuan" />
+	<import class="drg.moh.service.model.DashboardChiPhiHoatDong" />
+	<import class="drg.moh.service.model.DashboardChiPhiThanhPhan" />
+	<import class="drg.moh.service.model.DashboardCMI" />
+	<import class="drg.moh.service.model.DashboardDinhSuat" />
+	<import class="drg.moh.service.model.RpDashboardChiPhiBinhQuan" />
+	<import class="drg.moh.service.model.RpDashboardCmi" />
+	<import class="drg.moh.service.model.RpDashboardCmi2" />
+	<import class="drg.moh.service.model.RpDashboardCmi3" />
+	<import class="drg.moh.service.model.RpDashboardCphd" />
+	<import class="drg.moh.service.model.RpDashboardDinhSuatChiTiet" />
+	<import class="drg.moh.service.model.RpDashboardDRG" />
+	<import class="drg.moh.service.model.RpDashboardDstc" />
+	<import class="drg.moh.service.model.RpDashboardDstcChiTiet" />
+	<import class="drg.moh.service.model.RpDashboardTrungBinh" />
 	<import class="drg.moh.service.model.ThongKe" />
 	<import class="drg.moh.service.model.ThongKeBaoCao" />
+	<import class="drg.moh.service.model.ViewDanhSachBenhAn" />
+	<class name="drg.moh.service.model.impl.DashboardBaoHiemImpl" table="rp_dashboard_baohiem">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_ma" name="drgMa" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_ten" name="drgTen" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_value" name="drgValue" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_up" name="drgUp" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_down" name="drgDown" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.DashboardChiPhiBinhQuanImpl" table="rp_dashboard_chiphi_binhquan">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="phibq_dichvu" name="phiBqDichVu" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="phibq_benhvien" name="phiBqBenhVien" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.DashboardChiPhiHoatDongImpl" table="rp_dashboard_chiphi_hoatdong">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="thanhphan_id" name="thanhPhanId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="thanhphan_ma" name="thanhPhanMa" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="thanhphan_ten" name="thanhPhanTen" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_phidv" name="drgPhiDv" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_dinhsuat" name="drgDinhSuat" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_values" name="drgValues" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.DashboardChiPhiThanhPhanImpl" table="rp_dashboard_chiphi_thanhphan">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="phi" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="dinhsuat" name="dinhSuat" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="drg" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.DashboardCMIImpl" table="rp_dashboard_cmi">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="cmi_thap" name="cmiThap" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="cmi_cao" name="cmiCao" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="cmi_trungbinh" name="cmiTrungBinh" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.DashboardDinhSuatImpl" table="rp_dashboard_dinhsuat">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="muc_bc" name="mucBc" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_name" name="orgName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="dinhsuat_tieuchuan" name="dinhSuatTieuChuan" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="dinhsuat_thucte" name="dinhSuatThucTe" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="dinhsuat_benhnhan" name="dinhSuatBenhNhan" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardChiPhiBinhQuanImpl" table="rp_dashboard_chiphibinhquan">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_chiphi" name="chiPhi" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_binhquan" name="binhQuan" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardCmiImpl" table="rp_dashboard_cmi">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_toanquoc" name="cmiToanQuoc" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_tinh" name="cmiTinh" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_tuyen" name="cmiTuyen" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_trungbinh" name="cmiTrungBinh" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_trungmax" name="cmiTrungMax" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_trungmin" name="cmiTrungMin" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_coso" name="cmiCoSo" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardCmi2Impl" table="func_dashboard_cmi_2">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_tentuyen" name="cmiTenTuyen" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_trungbinh" name="cmiTrungBinh" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_max" name="cmiTrungMax" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_min" name="cmiTrungMin" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardCmi3Impl" table="func_dashboard_cmi_3">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_tinh" name="cmiTinh" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_tuyen" name="cmiTuyen" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_cmi_coso" name="cmiCoSo" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardCphdImpl" table="rp_dashboard_cphd">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_ten_tinh" name="tenTinh" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_chiphi" name="chiPhi" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_dinhsuat" name="dinhSuat" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_drg" name="drg" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardDinhSuatChiTietImpl" table="rp_dashboard_dinhsuat_ct">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_tentinh" name="tenTinh" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_dinhsuat" name="dinhSuat" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardDRGImpl" table="rp_dashboard_drg">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_drg" name="drg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_thang" name="thang" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_value" name="value" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardDstcImpl" table="rp_dashboard_dstc">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_ten_tinh" name="tenTinh" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_thang" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_soluot" name="soLuot" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_chiphi" name="chiPhi" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_quyds" name="quyDs" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardDstcChiTietImpl" table="rp_dashboard_dstc_chitiet">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_id" name="id" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_ten_tinh" name="tenTinh" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="_dinhsuat" name="dinhSuat" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="drg.moh.service.model.impl.RpDashboardTrungBinhImpl" table="DRG_RpDashboardTrungBinh">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="data_" name="data" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+	</class>
 	<class name="drg.moh.service.model.impl.ThongKeImpl" table="hsbhyt_tonghop_thongke">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
 			<generator class="assigned" />
@@ -22,5 +201,21 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="thang" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="tong_hoso" name="tongHoSo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="drg.moh.service.model.impl.ViewDanhSachBenhAnImpl" table="view_danhsach_hsba">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="organization_id" name="orgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ma_cskcb" name="maCoSo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ten_cskcb" name="tenCoSo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ma_lk" name="maHoSo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ma_bn" name="maBenhNhan" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ho_ten" name="hoTen" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="ma_the" name="maThe" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nam" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_chiphi" name="chiPhi" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_dinhsuat" name="dinhSuat" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" column="drg_giatri" name="giaTri" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
 	</class>
 </hibernate-mapping>

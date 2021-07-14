@@ -1,4 +1,5 @@
 <?xml version="1.0" ?>
 <custom-sql>
 	<sql file="META-INF/custom-sql/postgresql/thongke.xml" />
+	<sql file="META-INF/custom-sql/postgresql/baocaodrg.xml" />
 </custom-sql>

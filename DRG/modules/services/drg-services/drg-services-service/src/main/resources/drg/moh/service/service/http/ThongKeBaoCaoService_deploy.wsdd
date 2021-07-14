@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_DRG_ThongKeBaoCaoService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.ThongKeBaoCaoServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="ThongKeBaoCaoServiceSoap" />
+		<parameter name="wsdlServiceElement" value="ThongKeBaoCaoServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_ThongKeBaoCaoService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+</deployment>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_DRG_RpDashboardDstcChiTietService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="drg.moh.service.service.http.RpDashboardDstcChiTietServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="RpDashboardDstcChiTietServiceSoap" />
+		<parameter name="wsdlServiceElement" value="RpDashboardDstcChiTietServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_DRG_RpDashboardDstcChiTietService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.service.moh.drg" />
+	</service>
+</deployment>

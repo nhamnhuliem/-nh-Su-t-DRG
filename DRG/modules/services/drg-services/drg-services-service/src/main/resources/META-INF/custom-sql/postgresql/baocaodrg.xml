@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<custom-sql>
+	<sql id="drg.moh.service.service.persistence.impl.DashboardChiPhiHoatDongFinderImpl.countBaoCaosByOrg_Muc_Nam">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM
+				rp_dashboard_chiphi_hoatdong bc
+			WHERE 1=1
+			[$ORG_ID$]
+			[$MUC$]
+			[$NAM$]				
+		]]>
+	</sql>
+		
+	<sql id="drg.moh.service.service.persistence.impl.DashboardChiPhiHoatDongFinderImpl.getBaoCaosByOrg_Muc_Nam">
+		<![CDATA[
+			SELECT
+				bc.*
+			FROM
+				rp_dashboard_chiphi_hoatdong bc
+			WHERE 1=1
+			[$ORG_ID$]
+			[$MUC$]
+			[$NAM$]
+			ORDER BY bc.thanhphan_ten ASC
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.DashboardBaoHiemFinderImpl.getBaoHiemData">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				rp_dashboard_baohiem
+			WHERE
+			organization_id = ?
+			AND muc_bc = ?
+			AND nam = ?
+			ORDER BY drg_ma, nam, thang
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.DashboardBaoHiemFinderImpl.getDrgBaoHiem">
+		<![CDATA[
+			SELECT
+				DISTINCT(DRG_MA)
+			FROM
+				rp_dashboard_baohiem
+			WHERE
+			organization_id = ?
+			AND muc_bc = ?
+			AND nam = ?
+			ORDER BY drg_ma
+		]]>
+	</sql>
+	<sql id="drg.moh.service.service.persistence.impl.ViewDanhSachBenhAnFinderImpl.countBaoCaosByOrg_Nam">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM
+				view_danhsach_hsba bc
+			WHERE 1=1
+			[$ORG_ID$]
+			[$NAM$]				
+		]]>
+	</sql>
+		
+	<sql id="drg.moh.service.service.persistence.impl.ViewDanhSachBenhAnFinderImpl.getBaoCaosByOrg_Nam">
+		<![CDATA[
+			SELECT
+				bc.*
+			FROM
+				view_danhsach_hsba bc
+			WHERE 1=1
+			[$ORG_ID$]
+			[$NAM$]
+			ORDER BY bc.ma_lk ASC
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCphdFinderImpl.getReportChiPhiHoatDong">
+		<![CDATA[
+			select * from func_dashboard_chiphihoatdong([$ORG_ID$]) 
+			[$ORDER_BY$]
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDstcFinderImpl.getReportDinhSuatTieuChuan">
+		<![CDATA[
+			select * from func_dashboard_dinhsuattieuchuan ([$ORG_ID$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDstcFinderImpl.getReportSoLuongBenhNhanDRG">
+		<![CDATA[
+			SELECT * from func_dashboard_drgbenhnhan([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDstcFinderImpl.getReportSoLuongBenhNhanDinhSuat">
+		<![CDATA[
+			SELECT * from func_dashboard_dinhsuatbenhnhan([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCmiFinderImpl.getReportCmiTW">
+		<![CDATA[
+			select * from func_dashboard_cmi_1 ([$ORG_ID$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCmiFinderImpl.getReportCmiTinh">
+		<![CDATA[
+			select * from func_dashboard_cmi_2 ([$ORG_ID$])
+		]]>
+	</sql>
+	
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDstcChiTietFinderImpl.getReportDinhSuatChiTiet">
+		<![CDATA[
+			select * from func_dashboard_dinhsuat_chitiet ([$PARAMETER$])
+		]]>
+	</sql>
+	
+	
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCmi2FinderImpl.getBaoCaoCmiBo_Tinh">
+		<![CDATA[
+			select * from func_dashboard_cmi_2([$PARAMETER$]) ORDER BY _id
+		]]>
+	</sql>
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCmi3FinderImpl.getReportCmiCoSo">
+		<![CDATA[
+			select * from func_dashboard_cmi_3([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDRGFinderImpl.getDRGData">
+		<![CDATA[
+			select * from func_dashboard_drg([$PARAMETER$]) as t order by t._drg;
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDRGFinderImpl.getDRGItems">
+		<![CDATA[
+			select distinct(t._drg) from func_dashboard_drg([$PARAMETER$]) as t order by t._drg;
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardDinhSuatChiTietFinderImpl.getDinhSuatChiTiet">
+		<![CDATA[
+			select * from func_dashboard_dinhsuat_chitiet([$PARAMETER$]);
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardChiPhiBinhQuanFinderImpl.getChiPhiBinhQuan">
+		<![CDATA[
+			select * from func_dashboard_chiphibinhquan([$PARAMETER$]);
+		]]>
+	</sql>
+	
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardCphdFinderImpl.getChiPhiThanhPhan">
+		<![CDATA[
+			select * from func_dashboard_chiphithanhphan([$PARAMETER$]);
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhFinderImpl.getTrungBinh4DinhSuat">
+		<![CDATA[
+			SELECT * from func_dashboard_dinhsuat_trungbinh([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhFinderImpl.getTrungBinh4Drg">
+		<![CDATA[
+			SELECT * from func_dashboard_drg_trungbinh([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhFinderImpl.getTrungBinh4CMI">
+		<![CDATA[
+			SELECT * from func_dashboard_cmi_trungbinh([$PARAMETER$])
+		]]>
+	</sql>
+	
+	<sql id="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhFinderImpl.getTrungBinh4ChiPhi">
+		<![CDATA[
+			SELECT * from func_dashboard_chiphi_trungbinh([$PARAMETER$])
+		]]>
+	</sql>
+</custom-sql>

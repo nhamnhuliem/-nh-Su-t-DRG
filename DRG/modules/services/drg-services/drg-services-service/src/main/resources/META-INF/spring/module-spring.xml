@@ -7,6 +7,118 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 >
+	<bean class="drg.moh.service.service.impl.DashboardBaoHiemLocalServiceImpl" id="drg.moh.service.service.DashboardBaoHiemLocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardBaoHiemServiceImpl" id="drg.moh.service.service.DashboardBaoHiemService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardBaoHiemPersistenceImpl" id="drg.moh.service.service.persistence.DashboardBaoHiemPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.DashboardBaoHiemFinderImpl" id="drg.moh.service.service.persistence.DashboardBaoHiemFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiBinhQuanLocalServiceImpl" id="drg.moh.service.service.DashboardChiPhiBinhQuanLocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiBinhQuanServiceImpl" id="drg.moh.service.service.DashboardChiPhiBinhQuanService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardChiPhiBinhQuanPersistenceImpl" id="drg.moh.service.service.persistence.DashboardChiPhiBinhQuanPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiHoatDongLocalServiceImpl" id="drg.moh.service.service.DashboardChiPhiHoatDongLocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiHoatDongServiceImpl" id="drg.moh.service.service.DashboardChiPhiHoatDongService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardChiPhiHoatDongPersistenceImpl" id="drg.moh.service.service.persistence.DashboardChiPhiHoatDongPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.DashboardChiPhiHoatDongFinderImpl" id="drg.moh.service.service.persistence.DashboardChiPhiHoatDongFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiThanhPhanLocalServiceImpl" id="drg.moh.service.service.DashboardChiPhiThanhPhanLocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardChiPhiThanhPhanServiceImpl" id="drg.moh.service.service.DashboardChiPhiThanhPhanService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardChiPhiThanhPhanPersistenceImpl" id="drg.moh.service.service.persistence.DashboardChiPhiThanhPhanPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.DashboardCMILocalServiceImpl" id="drg.moh.service.service.DashboardCMILocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardCMIServiceImpl" id="drg.moh.service.service.DashboardCMIService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardCMIPersistenceImpl" id="drg.moh.service.service.persistence.DashboardCMIPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.DashboardDinhSuatLocalServiceImpl" id="drg.moh.service.service.DashboardDinhSuatLocalService" />
+	<bean class="drg.moh.service.service.impl.DashboardDinhSuatServiceImpl" id="drg.moh.service.service.DashboardDinhSuatService" />
+	<bean class="drg.moh.service.service.persistence.impl.DashboardDinhSuatPersistenceImpl" id="drg.moh.service.service.persistence.DashboardDinhSuatPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardChiPhiBinhQuanLocalServiceImpl" id="drg.moh.service.service.RpDashboardChiPhiBinhQuanLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardChiPhiBinhQuanServiceImpl" id="drg.moh.service.service.RpDashboardChiPhiBinhQuanService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardChiPhiBinhQuanPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardChiPhiBinhQuanPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardChiPhiBinhQuanFinderImpl" id="drg.moh.service.service.persistence.RpDashboardChiPhiBinhQuanFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardCmiLocalServiceImpl" id="drg.moh.service.service.RpDashboardCmiLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardCmiServiceImpl" id="drg.moh.service.service.RpDashboardCmiService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmiPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardCmiPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmiFinderImpl" id="drg.moh.service.service.persistence.RpDashboardCmiFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardCmi2LocalServiceImpl" id="drg.moh.service.service.RpDashboardCmi2LocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardCmi2ServiceImpl" id="drg.moh.service.service.RpDashboardCmi2Service" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmi2PersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardCmi2Persistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmi2FinderImpl" id="drg.moh.service.service.persistence.RpDashboardCmi2Finder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardCmi3LocalServiceImpl" id="drg.moh.service.service.RpDashboardCmi3LocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardCmi3ServiceImpl" id="drg.moh.service.service.RpDashboardCmi3Service" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmi3PersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardCmi3Persistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCmi3FinderImpl" id="drg.moh.service.service.persistence.RpDashboardCmi3Finder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardCphdLocalServiceImpl" id="drg.moh.service.service.RpDashboardCphdLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardCphdServiceImpl" id="drg.moh.service.service.RpDashboardCphdService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCphdPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardCphdPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardCphdFinderImpl" id="drg.moh.service.service.persistence.RpDashboardCphdFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardDinhSuatChiTietLocalServiceImpl" id="drg.moh.service.service.RpDashboardDinhSuatChiTietLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardDinhSuatChiTietServiceImpl" id="drg.moh.service.service.RpDashboardDinhSuatChiTietService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDinhSuatChiTietPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardDinhSuatChiTietPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDinhSuatChiTietFinderImpl" id="drg.moh.service.service.persistence.RpDashboardDinhSuatChiTietFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardDRGLocalServiceImpl" id="drg.moh.service.service.RpDashboardDRGLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardDRGServiceImpl" id="drg.moh.service.service.RpDashboardDRGService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDRGPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardDRGPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDRGFinderImpl" id="drg.moh.service.service.persistence.RpDashboardDRGFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardDstcLocalServiceImpl" id="drg.moh.service.service.RpDashboardDstcLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardDstcServiceImpl" id="drg.moh.service.service.RpDashboardDstcService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDstcPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardDstcPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDstcFinderImpl" id="drg.moh.service.service.persistence.RpDashboardDstcFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardDstcChiTietLocalServiceImpl" id="drg.moh.service.service.RpDashboardDstcChiTietLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardDstcChiTietServiceImpl" id="drg.moh.service.service.RpDashboardDstcChiTietService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDstcChiTietPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardDstcChiTietPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardDstcChiTietFinderImpl" id="drg.moh.service.service.persistence.RpDashboardDstcChiTietFinder">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.RpDashboardTrungBinhLocalServiceImpl" id="drg.moh.service.service.RpDashboardTrungBinhLocalService" />
+	<bean class="drg.moh.service.service.impl.RpDashboardTrungBinhServiceImpl" id="drg.moh.service.service.RpDashboardTrungBinhService" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhPersistenceImpl" id="drg.moh.service.service.persistence.RpDashboardTrungBinhPersistence" />
+	<bean class="drg.moh.service.service.persistence.impl.RpDashboardTrungBinhFinderImpl" id="drg.moh.service.service.persistence.RpDashboardTrungBinhFinder" />
 	<bean class="drg.moh.service.service.impl.ThongKeLocalServiceImpl" id="drg.moh.service.service.ThongKeLocalService" />
 	<bean class="drg.moh.service.service.impl.ThongKeServiceImpl" id="drg.moh.service.service.ThongKeService" />
 	<bean class="drg.moh.service.service.persistence.impl.ThongKePersistenceImpl" id="drg.moh.service.service.persistence.ThongKePersistence">
@@ -15,6 +127,14 @@
 	<bean class="drg.moh.service.service.impl.ThongKeBaoCaoLocalServiceImpl" id="drg.moh.service.service.ThongKeBaoCaoLocalService" />
 	<bean class="drg.moh.service.service.impl.ThongKeBaoCaoServiceImpl" id="drg.moh.service.service.ThongKeBaoCaoService" />
 	<bean class="drg.moh.service.service.persistence.impl.ThongKeBaoCaoPersistenceImpl" id="drg.moh.service.service.persistence.ThongKeBaoCaoPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.impl.ViewDanhSachBenhAnLocalServiceImpl" id="drg.moh.service.service.ViewDanhSachBenhAnLocalService" />
+	<bean class="drg.moh.service.service.impl.ViewDanhSachBenhAnServiceImpl" id="drg.moh.service.service.ViewDanhSachBenhAnService" />
+	<bean class="drg.moh.service.service.persistence.impl.ViewDanhSachBenhAnPersistenceImpl" id="drg.moh.service.service.persistence.ViewDanhSachBenhAnPersistence">
+		<property name="dataSource" ref="drgDataSource" />
+	</bean>
+	<bean class="drg.moh.service.service.persistence.impl.ViewDanhSachBenhAnFinderImpl" id="drg.moh.service.service.persistence.ViewDanhSachBenhAnFinder">
 		<property name="dataSource" ref="drgDataSource" />
 	</bean>
 </beans>

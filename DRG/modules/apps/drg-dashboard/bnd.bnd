@@ -1,0 +1,4 @@
+Bundle-Name: drg-dashboard
+Bundle-SymbolicName: drg.dashboard
+Bundle-Version: 1.0.0
+Export-Package: drg.dashboard.constants
